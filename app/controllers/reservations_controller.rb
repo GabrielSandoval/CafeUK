@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    reservation.destroy(params[:id])
+    Reservation.destroy(params[:id])
     redirect_to reservations_path, :notice => 'Reservation has been s deleted.'
   end
 

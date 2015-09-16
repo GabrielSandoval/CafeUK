@@ -1,0 +1,11 @@
+.container
+	.box
+		.col-lg-30
+			- @reservations.each do |reservation|
+				= reservation.table_number
+				= reservation.number_of_people
+				= reservation.date
+				= reservation.time
+				=link_to "Delete", reservation, :method => :delete, :data => {confirm: "Are you sure?"}
+			
+				= link_to "Mark as finished"
