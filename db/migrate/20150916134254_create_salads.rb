@@ -4,6 +4,8 @@ class CreateSalads < ActiveRecord::Migration
    	  t.string :name
       t.float :price
       t.text :description
+      t.boolean :available
+      
       t.timestamps null: false
     end
   end

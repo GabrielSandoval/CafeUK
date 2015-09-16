@@ -1,1 +1,18 @@
-name, size, small_price, medium_prime, large_price, type, description
+name, small_price, medium_price, large_price, type, description
+Summer Delight,100,0,0, Beverage, Blueberry/Strawberry
+Milk Tea,100,120,140,Beverage,Vanilla/Caramel
+Irish Cream,140,155,170,Beverage with Kick,Hot/Cold
+Peppermint Coffee,130,145,160, Frappuccino, N/A
+Cookies n' Cream,130,145,160, Frappuccino, N/A
+Blueberry n' Cream,130,145,160, Frappuccino, N/A
+Strawberry n' Cream,130,145,160, Frappuccino, N/A
+Caramel,130,145,160, Frappuccino, N/A
+Mocha,130,145,160, Frappuccino, N/A
+Vanilla,130,145,160, Frappuccino, N/A
+Mocha Choco Chips,140,155,170, Frappuccino, N/A
+Coffee Jelly,140,155,170, Frappuccino, N/A
+Vacuum Coffee,105,115,135, Espresso Coffee, N/A 
+Cafe Latte,110,125,140, Espresso Coffee, N/A
+Cappuccino,110,125,140, Espresso Coffee, N/A
+Cafe Mocha,115,130,145, Espresso Coffee, N/A
+Caramel Macchiato,120,135,150, Espresso Coffee, N/A

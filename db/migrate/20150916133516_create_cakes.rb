@@ -5,6 +5,7 @@ class CreateCakes < ActiveRecord::Migration
       t.string :type
       t.float :price
       t.text :description
+      t.boolean :available
 
       t.timestamps null: false
     end

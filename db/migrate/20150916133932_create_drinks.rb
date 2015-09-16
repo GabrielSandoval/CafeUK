@@ -9,6 +9,7 @@ class CreateDrinks < ActiveRecord::Migration
       t.float :large_price
       t.string :type
       t.text :description
+      t.boolean :available
 
       t.timestamps null: false
     end
