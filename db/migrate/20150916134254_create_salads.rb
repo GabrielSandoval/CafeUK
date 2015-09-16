@@ -4,6 +4,7 @@ class CreateSalads < ActiveRecord::Migration
    	  t.string :name
       t.float :price
       t.text :description
+      t.integer :quantity
       t.boolean :available
       
       t.references :order

@@ -8,43 +8,17 @@
         %span.icon-bar
         %span.icon-bar
       / navbar-brand is hidden on larger screens, but visible when the menu is collapsed
-      %a.navbar-brand{:href => :root} Cafe UK
+      %a.navbar-brand{:href => "index.html"} Cafe UK
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li
-          %a{:href => page_path(:home)} Home
+          = link_to "Home", page_path(:home)
         %li
-          %a{:href => page_path(:about)} About Us
+          = link_to "About", page_path(:about)
         %li
-          %a{:href => page_path(:map)} Maps
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Menu
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "#"} Coffee
-            %li
-              %a{:href => "#"} Cake
-            %li
-              %a{:href => "#"} Others
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Something
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Extra
-        - if true
-          %li
-            =link_to "Register", page_path(:home)
-          %li
-            =link_to "Login", page_path(:home)
-        - else
-          %li
-            =link_to "#{current_user.first_name}", page_path(:home)
-          %li
-            =link_to "Logout", page_path(:home), :method => :delete
-          
-    / /.navbar-collapse
-  / /.container
+          = link_to "Menu", orders_path
+        %li
+          = link_to "Register", page_path(:home)
+        %li
+          = link_to "Login", page_path(:home)

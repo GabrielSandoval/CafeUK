@@ -9,6 +9,7 @@ class CreateDrinks < ActiveRecord::Migration
       t.float :large_price
       t.string :drink_type
       t.text :description
+      t.integer :quantity
       t.boolean :available
 
       t.references :order

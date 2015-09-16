@@ -5,6 +5,7 @@ class CreateCakes < ActiveRecord::Migration
       t.string :cake_type
       t.float :price
       t.text :description
+      t.integer :quantity
       t.boolean :available
 
       t.references :order

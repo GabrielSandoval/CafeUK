@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
+  
   def index
-  	@orders = Order.all
+    @drinks = Drink.all
+    @cakes = Cake.all
+    @paninis = Panini.all
+    @salads = Salad.all
   end
   
   def show
@@ -9,6 +13,10 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @drinks = Drink.all
+    @cakes = Cake.all
+    @paninis = Panini.all
+    @salads = Salad.all
   end
 
   def edit
