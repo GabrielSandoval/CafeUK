@@ -18,9 +18,7 @@
             %li
               %a{"data-toggle" => "tab", :href => "#portlet_tab4"}
                 Salads
-          .pull-right
-            %h3
-              =link_to "Create an ORDER", new_order_path, :class => "btn btn-lg"
+          =link_to "Create an ORDER", new_order_path, :class => "btn btn-lg pull-right"
 
         .portlet-body
           .tab-content
@@ -34,7 +32,7 @@
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar
-                        %img{:alt => "", :src => ""}/
+                        = image_tag "drinks.jpg", :class=>"img img-responsive"
                       .content
                         %p
                           = drink.name
@@ -50,7 +48,7 @@
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar
-                        %img{:alt => "", :src => ""}/
+                        = image_tag "cakes.jpg", :class=>"img img-responsive"
                       .content
                         %p
                           = cake.name
@@ -66,7 +64,7 @@
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar
-                        %img{:alt => "", :src => ""}/
+                        = image_tag "paninis.jpg", :class=>"img img-responsive"
                       .content
                         %p
                           = panini.name
@@ -82,7 +80,7 @@
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar
-                        %img{:alt => "", :src => ""}/
+                        = image_tag "salads.jpg", :class=>"img img-responsive"
                       .content
                         %p
                           = salad.name
