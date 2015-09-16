@@ -1,0 +1,2 @@
+class PaninisController < ApplicationController
+end

@@ -1,0 +1,50 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      / navbar-brand is hidden on larger screens, but visible when the menu is collapsed
+      %a.navbar-brand{:href => :root} Cafe UK
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => page_path(:home)} Home
+        %li
+          %a{:href => page_path(:about)} About Us
+        %li
+          %a{:href => page_path(:map)} Maps
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Menu
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Coffee
+            %li
+              %a{:href => "#"} Cake
+            %li
+              %a{:href => "#"} Others
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} Something
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} Extra
+        - if true
+          %li
+            =link_to "Register", page_path(:home)
+          %li
+            =link_to "Login", page_path(:home)
+        - else
+          %li
+            =link_to "#{current_user.first_name}", page_path(:home)
+          %li
+            =link_to "Logout", page_path(:home), :method => :delete
+          
+    / /.navbar-collapse
+  / /.container

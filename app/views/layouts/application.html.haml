@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+
+    %title Cafe
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    / /Bootstrap Core CSS
+    / %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}
+    / /Custom CSS
+    / %link{:href => "css/business-casual.css", :rel => "stylesheet"}
+
+    / Fonts
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic", :rel => "stylesheet", :type => "text/css"}
+
+  %body
+    = render :partial => 'layouts/header'
+    = render :partial => 'layouts/navbar'
+    .container
+      - flash.each do |name, message|
+        = content_tag :div, message, :id => "flash_#{name}"
+    = yield
+    = render :partial => 'layouts/footer' 
