@@ -6,6 +6,8 @@ class CreateSalads < ActiveRecord::Migration
       t.text :description
       t.boolean :available
       
+      t.references :order
+      
       t.timestamps null: false
     end
   end

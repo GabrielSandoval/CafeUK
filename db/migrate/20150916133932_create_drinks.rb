@@ -7,10 +7,12 @@ class CreateDrinks < ActiveRecord::Migration
       t.float :small_price
       t.float :medium_price
       t.float :large_price
-      t.string :type
+      t.string :drink_type
       t.text :description
       t.boolean :available
 
+      t.references :order
+      
       t.timestamps null: false
     end
   end

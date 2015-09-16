@@ -1,4 +1,4 @@
-name, small_price, medium_price, large_price, type, description
+name, small_price, medium_price, large_price, drink_type, description
 Summer Delight,100,0,0, Beverage, Blueberry/Strawberry
 Milk Tea,100,120,140,Beverage,Vanilla/Caramel
 Irish Cream,140,155,170,Beverage with Kick,Hot/Cold

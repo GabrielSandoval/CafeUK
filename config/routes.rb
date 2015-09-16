@@ -9,14 +9,13 @@ Rails.application.routes.draw do
   root to: "pages#show", page: "home"
   get "/pages/*page" => "pages#show", :as => "page"
 
-  resources :orders
+  resources :orders do
+    resources :cakes
+    resources :drinks
+    resources :paninis
+    resources :salads
+  end
 
-  resources :cakes
-  resources :drinks
-  resources :paninis
-  resources :pastas
-  resources :salads
-  
   resources :reservations
 
   # Example of regular route:

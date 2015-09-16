@@ -11,33 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916141635) do
+ActiveRecord::Schema.define(version: 20150916144535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cakes", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "cake_type"
     t.float    "price"
     t.text     "description"
+    t.boolean  "available"
+    t.integer  "order_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "drinks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "size"
+    t.float    "small_price"
+    t.float    "medium_price"
+    t.float    "large_price"
+    t.string   "drink_type"
+    t.text     "description"
+    t.boolean  "available"
+    t.integer  "order_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "paninis", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pasta", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.boolean  "available"
+    t.integer  "order_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -51,8 +68,13 @@ ActiveRecord::Schema.define(version: 20150916141635) do
   end
 
   create_table "salads", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.boolean  "available"
+    t.integer  "order_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

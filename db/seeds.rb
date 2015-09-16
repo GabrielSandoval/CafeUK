@@ -80,7 +80,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Drink.create row.to_hash
+		  Panini.create row.to_hash
 		end
 
 		puts "Finished baking paninis."
@@ -93,7 +93,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Drink.create row.to_hash
+		  Pasta.create row.to_hash
 		end
 
 		puts "Finished cooking pastas."
@@ -106,7 +106,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Drink.create row.to_hash
+		  Salad.create row.to_hash
 		end
 
 		puts "Finished mixing salads."
