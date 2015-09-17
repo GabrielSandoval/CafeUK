@@ -10,7 +10,7 @@ require 'csv'
 	
 	def load_data
 		puts "Populating database"
-		# create_admin_accounts
+		create_admin_accounts
 		# register_members
 
 		bake_cakes
@@ -25,7 +25,7 @@ require 'csv'
 	def create_admin_accounts
 		puts "Adding admin."
 
-		admin = User.new(:email => 'admin@example.com', :first_name => 'admin_first', :last_name => 'admin_last', :password => 'adminpassword', :bio => "I am the ADMIN")
+		admin = User.new(:email => 'admin@example.com', :first_name => 'admin_first', :last_name => 'admin_last', :password => 'adminpassword', :bio => "I am the ADMIN", :admin => true)
 		admin.skip_confirmation!
 		admin.save
 

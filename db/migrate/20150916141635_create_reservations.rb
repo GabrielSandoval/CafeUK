@@ -7,6 +7,8 @@ class CreateReservations < ActiveRecord::Migration
       t.datetime :time
       t.boolean :finished
 
+      t.references :user
+
       t.timestamps null: false
     end
   end

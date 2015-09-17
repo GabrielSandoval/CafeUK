@@ -5,6 +5,8 @@ class CreateOrders < ActiveRecord::Migration
 	  t.float :change
       t.float :total_balance
       t.boolean :active
+
+      t.references :user
       
       t.timestamps null: false
     end

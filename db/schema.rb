@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916144535) do
+ActiveRecord::Schema.define(version: 20150917013748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150916144535) do
     t.string   "cake_type"
     t.float    "price"
     t.text     "description"
+    t.integer  "quantity"
     t.boolean  "available"
     t.integer  "order_id"
     t.datetime "created_at",  null: false
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150916144535) do
     t.float    "large_price"
     t.string   "drink_type"
     t.text     "description"
+    t.integer  "quantity"
     t.boolean  "available"
     t.integer  "order_id"
     t.datetime "created_at",   null: false
@@ -42,15 +44,20 @@ ActiveRecord::Schema.define(version: 20150916144535) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.float    "cash_breakdown"
+    t.float    "change"
+    t.float    "total_balance"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "paninis", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
     t.text     "description"
+    t.integer  "quantity"
     t.boolean  "available"
     t.integer  "order_id"
     t.datetime "created_at",  null: false
@@ -63,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150916144535) do
     t.datetime "date"
     t.datetime "time"
     t.boolean  "finished"
+    t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -71,10 +79,46 @@ ActiveRecord::Schema.define(version: 20150916144535) do
     t.string   "name"
     t.float    "price"
     t.text     "description"
+    t.integer  "quantity"
     t.boolean  "available"
     t.integer  "order_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "location"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "gender"
+    t.integer  "age"
+    t.datetime "birthday"
+    t.text     "bio"
+    t.boolean  "admin"
+    t.boolean  "member"
+    t.integer  "points"
+  end
+
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
