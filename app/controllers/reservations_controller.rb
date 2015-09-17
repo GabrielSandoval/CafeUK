@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
- def index
+  before_action :authenticate_user!
+
+  def index
   	@reservations = Reservation.all
   end
   

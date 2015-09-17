@@ -1,0 +1,101 @@
+<!-- %h2
+  Edit #{resource_name.to_s.humanize}
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = devise_error_messages!
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      Currently waiting confirmation for: #{resource.unconfirmed_email}
+  .field
+    = f.label :password
+    %i (leave blank if you don't want to change it)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .field
+    = f.label :current_password
+    %i (we need your current password to confirm your changes)
+    %br/
+    = f.password_field :current_password, autocomplete: "off"
+  .actions
+    = f.submit "Update"
+%h3 Cancel my account
+%p
+  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+= link_to "Back", :back
+ -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="panel panel-info">
+                
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                
+                <%= devise_error_messages! %>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <%= image_tag "user.png", :class=>"img img-responsive" %>
+                        </div>
+                        <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                          <dl>
+                            <dt>DEPARTMENT:</dt>
+                            <dd>Administrator</dd>
+                            <dt>HIRE DATE</dt>
+                            <dd>11/12/2013</dd>
+                            <dt>DATE OF BIRTH</dt>
+                               <dd>11/12/2013</dd>
+                            <dt>GENDER</dt>
+                            <dd>Male</dd>
+                          </dl>
+                        </div>-->
+                        <div class=" col-md-9 col-lg-9 "> 
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>First Name:</td>
+                                        <td><%= f.first_name :first_name, autocomplete: "off"%></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name:</td>
+                                        <td><%= f.last_name :last_name, autocomplete: "off"%></td>
+                                    </tr>
+                                    <tr>
+                                        <tr>
+                                        <td>Gender:</td>
+                                        <td><%= f.text_field :gender, autocomplete: "off"%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Location:</td>
+                                            <td><%= f.text_field :location, autocomplete: "off"%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td><%= f.email_field :email, autocomplete: "off"%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contact Number:</td>
+                                            <td><%= f.text_field :contact_number, autocomplete: "off"%><br>
+                                            </td>
+                                        </tr>                          
+                                    </tr> 
+                                </tbody>
+                            </table>
+                                <a href="changepassword.html" class="btn btn-primary">Change Password</a>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+                <div class="panel-footer">
+                    <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

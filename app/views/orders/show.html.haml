@@ -5,25 +5,26 @@
         %table.table.table-hover
           %thead
             %tr
-              %th Product
-              %th Quantity
-              %th.text-center Price
-              %th.text-center Total
-              %th  
+              %th.col-sm-2.col-md-2.text-center Product
+              %th.col-sm-4.col-md-4.text-center Name
+              %th.col-sm-2.col-md-2.text-center Description
+              %th.col-sm-1.col-md-1.text-center Quantity
+              %th.col-sm-1.col-md-1.text-center Price
+              %th.col-sm-1.col-md-1.text-center Total
+              %th.col-sm-1.col-md-1
           %tbody
-            - if !@orders.cakes.blank?
-              @orders.cakes.each do |cake|
+            - if !@order.drinks.blank?
+              - @order.drinks.each do |drink|
                 %tr
-                  %td.col-sm-8.col-md-6
-                    .media
-                      %a.thumbnail.pull-left{:href => "#"}
-                        %img.media-object{:src => "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png", :style => "width: 72px; height: 72px;"}                   .media-body
-                        %h4.media-heading
-                          = cake.name
-                        %h5.media-heading
-                          = cake.description
+                  %td.col-sm-2.col-md-2
+                    %a{:href => "#"}
+                      = image_tag "drinks.jpg", :class=>"img img-responsive center-block", :size =>"75x75"
+                  %td.col-sm-4.col-md-4{:style => "text-align: center"}
+                    = drink.name
+                  %td.col-sm-2.col-md-2{:style => "text-align: center"}
+                    = drink.description      
                   %td.col-sm-1.col-md-1{:style => "text-align: center"}
-                    %input#exampleInputEmail1.form-control{:type => "email", :value => "3"}
+                    = drink.quantity
                   %td.col-sm-1.col-md-1.text-center
                     %strong $4.87
                   %td.col-sm-1.col-md-1.text-center
@@ -33,74 +34,9 @@
                       %span.glyphicon.glyphicon-remove
                       Remove
 
-            - if !@orders.drinks.blank?
-              - @orders.drinks.each do |drink|
-                %tr
-                  %td.col-sm-8.col-md-6
-                    .media
-                      %a.thumbnail.pull-left{:href => "#"}
-                        %img.media-object{:src => "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png", :style => "width: 72px; height: 72px;"}                   .media-body
-                        %h4.media-heading
-                          drink.name
-                        %h5.media-heading
-                          drink.description
-                  %td.col-sm-1.col-md-1{:style => "text-align: center"}
-                    %input#exampleInputEmail1.form-control{:type => "email", :value => "3"}
-                  %td.col-sm-1.col-md-1.text-center
-                    %strong $4.87
-                  %td.col-sm-1.col-md-1.text-center
-                    %strong $14.61
-                  %td.col-sm-1.col-md-1
-                    %button.btn.btn-danger{:type => "button"}
-                      %span.glyphicon.glyphicon-remove
-                      Remove
-
-            - if !@orders.paninis.blank?
-              - @orders.paninis.each do |panini|
-                %tr
-                  %td.col-sm-8.col-md-6
-                    .media
-                      %a.thumbnail.pull-left{:href => "#"}
-                        %img.media-object{:src => "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png", :style => "width: 72px; height: 72px;"}                   .media-body
-                        %h4.media-heading
-                          = panini.name
-                        %h5.media-heading
-                          by
-                          = panini.description
-                  %td.col-sm-1.col-md-1{:style => "text-align: center"}
-                    %input#exampleInputEmail1.form-control{:type => "email", :value => "3"}
-                  %td.col-sm-1.col-md-1.text-center
-                    %strong $4.87
-                  %td.col-sm-1.col-md-1.text-center
-                    %strong $14.61
-                  %td.col-sm-1.col-md-1
-                    %button.btn.btn-danger{:type => "button"}
-                      %span.glyphicon.glyphicon-remove
-                      Remove
-
-            - if !@orders.salads.blank?
-              - @orders.salads.each |salad|
-                %tr
-                  %td.col-sm-8.col-md-6
-                    .media
-                      %a.thumbnail.pull-left{:href => "#"}
-                        %img.media-object{:src => "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png", :style => "width: 72px; height: 72px;"}                   .media-body
-                        %h4.media-heading
-                          = salad.name
-                        %h5.media-heading
-                          = salad.description
-                  %td.col-sm-1.col-md-1{:style => "text-align: center"}
-                    %input#exampleInputEmail1.form-control{:type => "email", :value => "3"}
-                  %td.col-sm-1.col-md-1.text-center
-                    %strong $4.87
-                  %td.col-sm-1.col-md-1.text-center
-                    %strong $14.61
-                  %td.col-sm-1.col-md-1
-                    %button.btn.btn-danger{:type => "button"}
-                      %span.glyphicon.glyphicon-remove
-                      Remove
-            
             %tr
+              %td  
+              %td  
               %td  
               %td  
               %td  
@@ -114,6 +50,8 @@
               %td  
               %td  
               %td
+              %td  
+              %td
                 %h5 Estimated shipping
               %td.text-right
                 %h5
@@ -123,6 +61,8 @@
               %td  
               %td  
               %td
+              %td  
+              %td
                 %h3 Total
               %td.text-right
                 %h3
@@ -130,6 +70,8 @@
             %tr
               %td  
               %td  
+              %td  
+              %td
               %td  
               %td
                 %button.btn.btn-default{:type => "button"}
