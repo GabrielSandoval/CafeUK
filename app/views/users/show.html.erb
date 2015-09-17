@@ -1,0 +1,71 @@
+    <div class="container">
+        <div class="row">
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center">
+                            	<%= image_tag "user.png", :class=>"img img-responsive" %>
+                            </div>
+                            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                              <dl>
+                                <dt>DEPARTMENT:</dt>
+                                <dd>Administrator</dd>
+                                <dt>HIRE DATE</dt>
+                                <dd>11/12/2013</dd>
+                                <dt>DATE OF BIRTH</dt>
+                                   <dd>11/12/2013</dd>
+                                <dt>GENDER</dt>
+                                <dd>Male</dd>
+                              </dl>
+                            </div>-->
+                            <div class=" col-md-9 col-lg-9 "> 
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name:</td>
+                                            <td><%= "#{@user.first_name} #{@user.last_name}"%></td>
+                                        </tr>
+                                        <tr>
+                                            <tr>
+                                                <td>Gender</td>
+                                                <td><%= @user.gender%></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Location</td>
+                                                <td><%= @user.location%></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Birthday</td>
+                                                <td><%= @user.birthday%></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td><%= @user.email%></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cellphone Number</td>
+                                                <td><%= @user.contact_number%></td>
+                                                
+                                            </tr> 
+                                            <tr>
+                                                <td>Bio</td>
+                                                <td><%= @user.bio %></td>
+                                            </tr>                           
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                                    <%= link_to "Edit profile", edit_user_registration_path, :class=>"btn btn-primary"%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+<!-- 
+                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                         -->
+                    </div>
+                </div>
+            </div>
+        </div>
