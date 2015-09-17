@@ -1,31 +1,23 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.container
+  .box
+    .col-lg-12
+      %h2
+        Edit #{resource_name.to_s.humanize}
+      - content_for :resource, "Settings for #{:first_name}"
+      %ul.nav.nav-tabs{:role => "tablist"}
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#profile", :role => "tab"}
+            Profile
+        %li
+          %a{"data-toggle" => "tab", :href => "#password", :role => "tab"}
+            Password
+        %li
+          %a{"data-toggle" => "tab", :href => "#account", :role => "tab"}
+            Account
+      .tab-content
+        #profile.tab-pane.active.col-md-12
+          = render :partial => "edit_profile"
+        #password.tab-pane.col-md-12
+          = render :partial => "edit_password"
+        #account.tab-pane.col-md-12
+          = render :partial => "edit_account"
