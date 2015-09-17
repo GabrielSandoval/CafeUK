@@ -26,7 +26,7 @@ require 'csv'
 		puts "Adding admin."
 
 		admin = User.new(:email => 'admin@example.com', :first_name => 'admin_first', :last_name => 'admin_last', :password => 'adminpassword', :bio => "I am the ADMIN", :admin => true)
-		admin.skip_confirmation!
+
 		admin.save
 
 		puts "Admin created."
