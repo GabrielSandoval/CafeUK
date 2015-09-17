@@ -1,0 +1,72 @@
+
+.container
+  .box
+    .col-lg-12
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        %h2.text-center
+          Please Sign Up
+          %small And enjoy all the features our cafe has in store for you!
+        %hr.colograph
+          .row
+            .col-xs-12.col-sm-6.col-md-6
+              .form-group
+                = f.text_field :first_name, :class=>"form-control input-lg", :placeholder=>"First Name", :tabindex=>1
+            .col-xs-12.col-sm-6.col-md-6
+              .form-group
+                = f.text_field :last_name, :class=>"form-control input-lg", :placeholder=>"Last Name", :tabindex=>2
+          
+          .form-group
+            = f.email_field :email, :class=>"form-control input-lg", :placeholder=>"E-Mail", :tabindex=>3
+          .row
+            .col-xs-12.col-sm-12.col-md-12
+              .form-group
+                - if @minimum_password_length
+                  %em
+                    (#{@minimum_password_length} characters minimum)
+            .col-xs-12.col-sm-6.col-md-6
+              .form-group
+                = f.password_field :password, :class=>"form-control input-lg", :placeholder=>"Password", :tabindex=>4
+            .col-xs-12.col-sm-6.col-md-6
+              .form-group
+                = f.password_field :password_confirmation, :class=>"form-control input-lg", :placeholder=>"Confirm Password", :tabindex=>5
+          .row
+            .col-xs-4.col-sm-3.col-md-3
+              %span.button-checkbox
+                = f.check_box :t_and_c, :tabindex=>6
+                %input#t_and_c.hidden{:name => "t_and_c", :type => "checkbox", :value => "1"}
+            .col-xs-8.col-sm-9.col-md-9
+              By clicking
+              = succeed "," do
+                %strong.label.label-primary Register
+              you agree to the
+              %a{"data-target" => "#t_and_c_m", "data-toggle" => "modal", :href => "#"} Terms and Conditions
+              set out by this site, including our Cookie Use.
+          %hr.colorgraph
+            .row
+              .col-xs-12.col-md-6
+                = f.submit "Sign up", :class=>"btn btn-primary btn-block btn-lg",  :tabindex=>7
+              .col-xs-12.col-md-6
+                = link_to "Sign in", new_user_session_path, :class=>"btn btn-success btn-block btn-lg", :tabindex=>8
+            = render "devise/shared/links"
+    
+  / Modal
+  #t_and_c_m.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4#myModalLabel.modal-title Terms & Conditions
+        .modal-body
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.
+        .modal-footer
+          %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} I Agree
+      / /.modal-content
+    / /.modal-dialog
+  / /.modal

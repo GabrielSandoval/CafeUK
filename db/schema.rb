@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20150917013748) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "pasta", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.boolean  "available"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.integer  "table_number"
     t.integer  "number_of_people"
@@ -112,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150917013748) do
     t.integer  "age"
     t.datetime "birthday"
     t.text     "bio"
+    t.boolean  "t_and_c"
     t.boolean  "admin"
     t.boolean  "member"
     t.integer  "points"

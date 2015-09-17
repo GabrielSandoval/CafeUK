@@ -9,6 +9,7 @@ class AddColumnsToUser < ActiveRecord::Migration
       add_column :users, :age, :integer
       add_column :users, :birthday, :datetime
       add_column :users, :bio, :text
+      add_column :users, :t_and_c, :boolean
       add_column :users, :admin, :boolean
       add_column :users, :member, :boolean
       add_column :users, :points, :integer
