@@ -5,6 +5,7 @@ class CreateReservations < ActiveRecord::Migration
       t.integer :number_of_people
       t.datetime :date
       t.datetime :time
+      t.datetime :date_reserved
       t.boolean :finished
 
       t.references :user

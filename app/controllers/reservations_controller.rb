@@ -25,6 +25,7 @@ class ReservationsController < ApplicationController
 
   def create
   	reservation = Reservation.new(reservation_params)
+    reservation.date_reserved = DateTime.now
     reservation.user = current_user
     reservation.save
   	redirect_to reservations_path
@@ -41,7 +42,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     Reservation.destroy(params[:id])
-    redirect_to reservations_path, :notice => 'Reservation has been s deleted.'
+    redirect_to reservations_path, :notice => 'Reservation has been deleted.'
   end
 
   private
