@@ -18,7 +18,7 @@
             %li
               %a{"data-toggle" => "tab", :href => "#portlet_tab4"}
                 Salads
-          =link_to "View CART", "#", :class => "btn btn-lg pull-right"
+          =link_to "View my CART", "#", :class => "btn btn-lg pull-right"
 
         .portlet-body
           .tab-content
@@ -39,7 +39,7 @@
                           %br
                             = drink.description
                         %p
-                          %button.btn.btn-default{:type => "button"} Order
+                          %button.btn.btn-default{:type => "button"} Add to Cart
             #portlet_tab2.tab-pane
               .col-lg-15
                 %h2.text-left
@@ -57,7 +57,7 @@
                           %br
                             = cake.description
                         %p
-                          %button.btn.btn-default{:type => "button"} Order
+                          %button.btn.btn-default{:type => "button"} Add to Cart
                 
             #portlet_tab3.tab-pane
               .col-lg-15
@@ -76,7 +76,7 @@
                           %br
                             = panini.description
                         %p
-                          %button.btn.btn-default{:type => "button"} Order
+                          %button.btn.btn-default{:type => "button"} Add to Cart
 
             #portlet_tab4.tab-pane
               .col-lg-15
@@ -95,5 +95,5 @@
                           %br
                             = salad.description
                         %p
-                          %button.btn.btn-default{:type => "button"} Order
+                          %button.btn.btn-default{:type => "button"} Add to Cart
                   

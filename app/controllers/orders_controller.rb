@@ -1,11 +1,18 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => :index
   
   def index
     @drinks = Drink.all
     @cakes = Cake.all
     @paninis = Panini.all
     @salads = Salad.all
+
+    # if current_user.admin?
+    #   @reservations = Order.all
+    # else
+    #   @reservations = Order.joins(:user).where(user: current_user)
+    # end
+
   end
   
   def show
@@ -25,7 +32,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-  	Order.create(order_params)
+    order = Order.new(order_params)
+    order.user = current_user
+    order.save
   	redirect_to orders_path
   end
 

@@ -1,5 +1,12 @@
 .container
   .box
+    .row
+    .col-lg-12
+      .pull-right
+        - if current_user.admin?
+          = link_to "View all reservations", reservations_path
+        - else
+          = link_to "View my reservations", reservations_path 
     .col-lg-12
       = form_for @reservation do |f|
         %h2.text-center Please fill up this from to Reserve a table in Cafe UK

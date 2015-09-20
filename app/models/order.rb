@@ -5,6 +5,6 @@ class Order < ActiveRecord::Base
 	# has_many :pasta, :dependent => :destroy
 	has_many :salads, :dependent => :destroy
 
-	belongs_to :user
+	belongs_to :user, :foreign_key => :user_id
 
 end

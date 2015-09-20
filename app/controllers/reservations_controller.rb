@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reservations = Reservation.all
+    
     if current_user.admin?
       @reservations = Reservation.all
     else
