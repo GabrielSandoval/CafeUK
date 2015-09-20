@@ -14,8 +14,7 @@ class Cart < ActiveRecord::Base
 
 	def add(product)
 
-
-		if find_in_cart(product.id) != nil
+		if !(find_in_cart(product.id) == nil)
 			ci = find_in_cart(product.id)
 			ci.update_attribute(:quantity, ci.quantity + 1)
 		else
@@ -36,5 +35,15 @@ class Cart < ActiveRecord::Base
 		end
 		nil
 	end
+
+	def remove(cart_item_id)
+		ci = CartItem.find(cart_item_id)
+		if ci.quantity > 1
+			ci.update_attribute(:quantity, ci.quantity - 1)
+		else
+			CartItem.destroy(ci.id)
+		end
+		return ci
+	end	
 
 end

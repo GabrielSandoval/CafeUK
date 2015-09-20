@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   root to: "pages#show", page: "home"
   get "/pages/*page" => "pages#show", :as => "page"
 
+  post "/cart/remove(.:format)" => "carts#remove", :as=> "remove_item"
   resources :products
   resources :menus
-  resource :cart
+  resource :carts
 
   resources :reservations
 

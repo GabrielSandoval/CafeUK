@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
 	def initialize_cart
 		
-		@cart = session[:cart_id] ? Cart.find(session[:cart_id]) : ShoppingCart.create
+		@cart = session[:cart_id] ? Cart.find(session[:cart_id]) : Cart.create
 		session[:cart_id] = @cart.id
 	end
 
