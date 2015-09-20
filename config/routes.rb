@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get "/pages/*page" => "pages#show", :as => "page"
 
   post "/cart/remove(.:format)" => "carts#remove", :as=> "remove_item"
+  get "/cart/clear" => "carts#clear", :as=> "clear_cart"
+
   resources :products
   resources :menus
   resource :carts

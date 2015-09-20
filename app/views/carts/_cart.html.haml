@@ -24,7 +24,8 @@
         - if flash[:cart_notice]
           %p#cart_notice
             = flash[:cart_notice]
-
+        .div.pull-right
+          =link_to "Clear cart", clear_cart_path, :class=>"btn btn-danger", :data=>{:confirm=>"Are you sure?"}
         %table.table.table-hover
           %thead
             %tr
