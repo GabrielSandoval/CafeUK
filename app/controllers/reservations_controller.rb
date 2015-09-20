@@ -2,7 +2,13 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  	@reservations = Reservation.all
+    @reservations = Reservation.all
+    if current_user.admin?
+      @reservations = Reservation.all
+    else
+      @reservations = Reservation.joins(:user).where(user: current_user)
+    end
+
   end
   
   def show
@@ -18,7 +24,9 @@ class ReservationsController < ApplicationController
   end
 
   def create
-  	Reservation.create(reservation_params)
+  	reservation = Reservation.new(reservation_params)
+    reservation.user = current_user
+    reservation.save
   	redirect_to reservations_path
   end
 

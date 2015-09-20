@@ -1,6 +1,8 @@
 .container
 	.box
 		.col-lg-30
+
+			RESERVATIONS
 			- @reservations.each do |reservation|
 				= reservation.table_number
 				= reservation.number_of_people

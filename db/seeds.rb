@@ -11,7 +11,7 @@ require 'csv'
 	def load_data
 		puts "Populating database"
 		create_admin_accounts
-		# register_members
+		register_members
 
 		bake_cakes
 		make_drinks
@@ -36,11 +36,11 @@ require 'csv'
 	def register_members
 		puts "Creating test users."
 
-		source_path = Rails.root.join('db', 'seeds_data', 'users.csv')
+		source_path = Rails.root.join('db', 'seeds_data', 'Users.csv')
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		contents.each do |row|
 			user = User.new row.to_hash
-			user.skip_confirmation!
+
 			user.save
 		end
 
