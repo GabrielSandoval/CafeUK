@@ -11,30 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920082336) do
+ActiveRecord::Schema.define(version: 20150920140210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cakes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "cake_type"
-    t.float    "price"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "cart_items", force: :cascade do |t|
-    t.integer  "book_id"
+    t.integer  "product_id"
     t.integer  "cart_id"
+    t.string   "name"
+    t.string   "classification"
+    t.integer  "quantity"
+    t.text     "description"
     t.float    "price"
-    t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "carts", force: :cascade do |t|
@@ -42,49 +33,17 @@ ActiveRecord::Schema.define(version: 20150920082336) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "drinks", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.string   "size"
+    t.string   "classification"
+    t.text     "description"
+    t.boolean  "available"
+    t.float    "default_price"
     t.float    "small_price"
     t.float    "medium_price"
     t.float    "large_price"
-    t.string   "drink_type"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.float    "cash_breakdown"
-    t.float    "change"
-    t.float    "total_balance"
-    t.boolean  "active"
-    t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-  end
-
-  create_table "paninis", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "pasta", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.boolean  "available"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -97,17 +56,6 @@ ActiveRecord::Schema.define(version: 20150920082336) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-  end
-
-  create_table "salads", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,18 +1,18 @@
-name, small_price, medium_price, large_price, drink_type, description
-Summer Delight,100,0,0, Beverage, Blueberry/Strawberry
-Milk Tea,100,120,140,Beverage,Vanilla/Caramel
-Irish Cream,140,155,170,Beverage with Kick,Hot/Cold
-Peppermint Coffee,130,145,160, Frappuccino, N/A
-Cookies n' Cream,130,145,160, Frappuccino, N/A
-Blueberry n' Cream,130,145,160, Frappuccino, N/A
-Strawberry n' Cream,130,145,160, Frappuccino, N/A
-Caramel,130,145,160, Frappuccino, N/A
-Mocha,130,145,160, Frappuccino, N/A
-Vanilla,130,145,160, Frappuccino, N/A
-Mocha Choco Chips,140,155,170, Frappuccino, N/A
-Coffee Jelly,140,155,170, Frappuccino, N/A
-Vacuum Coffee,105,115,135, Espresso Coffee, N/A 
-Cafe Latte,110,125,140, Espresso Coffee, N/A
-Cappuccino,110,125,140, Espresso Coffee, N/A
-Cafe Mocha,115,130,145, Espresso Coffee, N/A
-Caramel Macchiato,120,135,150, Espresso Coffee, N/A
+name,classification,description,available,default_price,small_price,medium_price,large_price
+Summer Delight,drink, Blueberry/Strawberry,TRUE,100,100,100,100
+Milk Tea,drink,Vanilla/Caramel,TRUE,120,100,120,140
+Irish Cream,drink,beverage w/ kick Hot/Cold ,TRUE,155,140,155,170
+Peppermint Coffee,drink, Frappuccino,TRUE,145,130,145,160
+Cookies n' Cream,drink, Frappuccino,TRUE,145,130,145,160
+Blueberry n' Cream,drink, Frappuccino,TRUE,145,130,145,160
+Strawberry n' Cream,drink, Frappuccino,TRUE,145,130,145,160
+Caramel,drink, Frappuccino,TRUE,145,130,145,160
+Mocha,drink, Frappuccino,TRUE,145,130,145,160
+Vanilla,drink, Frappuccino,TRUE,145,130,145,160
+Mocha Choco Chips,drink, Frappuccino,TRUE,155,140,155,170
+Coffee Jelly,drink, Frappuccino,TRUE,155,140,155,170
+Vacuum Coffee,drink, Espresso Coffee,TRUE,115,105,115,135
+Cafe Latte,drink, Espresso Coffee,TRUE,125,110,125,140
+Cappuccino,drink, Espresso Coffee,TRUE,125,110,125,140
+Cafe Mocha,drink, Espresso Coffee,TRUE,130,115,130,145
+Caramel Macchiato,drink, Espresso Coffee,TRUE,135,120,135,150

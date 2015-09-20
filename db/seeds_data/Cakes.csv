@@ -1,19 +1,19 @@
-name, cake_type, price, description
-Apple Pie, Regular, 130, N/A
-Amaretto Chocolate Cake, Regular, 140, N/A
-Baileys Whisper Cake, Regular, 140, N/A
-Belgian Chocolate, CheeseCake, 140, N/A
-Belgian Chocolate Cake, Regular, 140, N/A
-Blueberry, CheeseCake, 140, N/A
-Dulce de Leche, CheeseCake, 140, N/A
-Double Decker, CheeseCake, 140, N/A
-Ferrero Chocolate Cake, Regular, 140, N/A
-Grandma's Carrot Cake, Regular, 140, N/A
-Macchiato Cake, Regular, 140, N/A
-New York, CheeseCake, 140, N/A
-Oreo, CheeseCake, 140, N/A
-Red Velvet Cake, Regular, 140, N/A
-Reese's, CheeseCake, 140, N/A
-Salted Caramel Cake, Regular, 140, N/A
-Strawberry, CheeseCake, 140, N/A
-Toblerone, CheeseCake, 140, N/A
+name,classification,description,available,default_price,small_price,medium_price,large_price
+Apple Pie,cake, Regular,TRUE,130,,,
+Amaretto Chocolate Cake,cake, Regular,TRUE,140,,,
+Baileys Whisper Cake,cake, Regular,TRUE,140,,,
+Belgian Chocolate,cake, CheeseCake,TRUE,140,,,
+Belgian Chocolate Cake,cake, Regular,TRUE,140,,,
+Blueberry,cake, CheeseCake,TRUE,140,,,
+Dulce de Leche,cake, CheeseCake,TRUE,140,,,
+Double Decker,cake, CheeseCake,TRUE,140,,,
+Ferrero Chocolate Cake,cake, Regular,TRUE,140,,,
+Grandma's Carrot Cake,cake, Regular,TRUE,140,,,
+Macchiato Cake,cake, Regular,TRUE,140,,,
+New York,cake, CheeseCake,TRUE,140,,,
+Oreo,cake, CheeseCake,TRUE,140,,,
+Red Velvet Cake,cake, Regular,TRUE,140,,,
+Reese's,cake, CheeseCake,TRUE,140,,,
+Salted Caramel Cake,cake, Regular,TRUE,140,,,
+Strawberry,cake, CheeseCake,TRUE,140,,,
+Toblerone,cake, CheeseCake,TRUE,140,,,

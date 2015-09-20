@@ -1,0 +1,65 @@
+/ <!-- <div class="container">
+/   <div class="row">
+/     <div class="box">
+
+		
+
+/ 		<h3>Your Shopping Cart</h3>
+/ 		<ul>
+/ 			<% @cart.cart_items.each do |item| %>
+			
+/ 			<% end %>
+/ 		</ul>	
+/ 		<p id="cart_total"><strong>Total: $<%= @cart.total %></strong></p>
+
+/ 		</div>
+/ 	</div>
+/ </div>
+/  -->
+
+.container
+  .box
+    .row
+      .col-sm-12.col-md-10.col-md-offset-1
+        - if flash[:cart_notice]
+          %p#cart_notice
+            = flash[:cart_notice]
+
+        %table.table.table-hover
+          %thead
+            %tr
+              %th.col-sm-2.col-md-2.text-center Product
+              %th.col-sm-4.col-md-4.text-center Name
+              %th.col-sm-2.col-md-2.text-center Description
+              %th.col-sm-1.col-md-1.text-center Quantity
+              %th.col-sm-1.col-md-1.text-center Price
+              %th.col-sm-1.col-md-1.text-center Total
+              %th.col-sm-1.col-md-1
+          %tbody
+            - if !@cart.cart_items.blank?
+              - @cart.cart_items.each do |item|
+                .div{:id=>"cart_item_#{item.product_id}"}
+                  = render :partial => "carts/item", :locals =>{:item => item}
+
+            %tr
+              %td  
+              %td  
+              %td
+              %td  
+              %td
+                %h3 Total
+              %td.text-right
+                %h3
+                  %strong
+                    =@cart.total
+
+            %tr
+              %td  
+              %td  
+              %td
+              %td  
+              %td
+              %td
+                %button.btn.btn-success{:type => "button"}
+                  Checkout
+                  %span.glyphicon.glyphicon-play

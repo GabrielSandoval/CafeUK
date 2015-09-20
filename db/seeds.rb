@@ -16,7 +16,7 @@ require 'csv'
 		bake_cakes
 		make_drinks
 		bake_paninis
-		cook_pastas
+		# cook_pastas
 		mix_salads
 
 		puts "Database populated."
@@ -54,7 +54,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Cake.create row.to_hash
+		  Product.create row.to_hash
 		end
 
 		puts "Finished baking cakes."
@@ -67,7 +67,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Drink.create row.to_hash
+		  Product.create row.to_hash
 		end
 
 		puts "Finished making drinks."
@@ -80,7 +80,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Panini.create row.to_hash
+		  Product.create row.to_hash
 		end
 
 		puts "Finished baking paninis."
@@ -93,7 +93,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Pasta.create row.to_hash
+		  Product.create row.to_hash
 		end
 
 		puts "Finished cooking pastas."
@@ -106,7 +106,7 @@ require 'csv'
 		contents = CSV.open source_path, headers: true, header_converters: :symbol
 		
 		contents.each do |row|
-		  Salad.create row.to_hash
+		  Product.create row.to_hash
 		end
 
 		puts "Finished mixing salads."

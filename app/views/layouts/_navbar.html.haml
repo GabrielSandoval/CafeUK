@@ -17,7 +17,10 @@
         %li
           = link_to "About", page_path(:about)
         %li
-          = link_to "Menu", orders_path
+          - if user_signed_in?
+            = link_to "Menu", menus_path
+          -else
+            = link_to "Menu", products_path
         %li
           = link_to "Reservation", new_reservation_path
         - if user_signed_in?

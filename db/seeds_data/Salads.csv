@@ -1,10 +1,10 @@
-name, price, description
-Cafe-UK Signature Salad,140, N/A
-Cafe-UK Healthy Salad,140, N/A
-Marble Potato Fondue,140, N/A
-Garden Salad,140, N/A
-Greek Salad,160, N/A
-Pesto and Oil with Chicken,175, N/A
-Bolognese in Tomato Sauce,185, N/A
-Carbonara with Ham and Bacon,190, N/A
-Spanish Sardine in Olive Oil and Garlic,190, N/A
+name,classification,description,available,default_price,small_price,medium_price,large_price
+Cafe-UK Signature Salad,salad,,TRUE,140,,,
+Cafe-UK Healthy Salad,salad,,TRUE,140,,,
+Marble Potato Fondue,salad,,TRUE,140,,,
+Garden Salad,salad,,TRUE,140,,,
+Greek Salad,salad,,TRUE,160,,,
+Pesto and Oil with Chicken,salad,,TRUE,175,,,
+Bolognese in Tomato Sauce,salad,,TRUE,185,,,
+Carbonara with Ham and Bacon,salad,,TRUE,190,,,
+Spanish Sardine in Olive Oil and Garlic,salad,,TRUE,190,,,

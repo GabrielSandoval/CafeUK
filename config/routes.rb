@@ -13,12 +13,9 @@ Rails.application.routes.draw do
   root to: "pages#show", page: "home"
   get "/pages/*page" => "pages#show", :as => "page"
 
-  resources :orders do
-    resources :cakes
-    resources :drinks
-    resources :paninis
-    resources :salads
-  end
+  resources :products
+  resources :menus
+  resource :cart
 
   resources :reservations
 
