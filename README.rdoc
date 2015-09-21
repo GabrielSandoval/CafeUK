@@ -4,13 +4,21 @@ HOW TO RUN PROJECT:
 
 Open terminal (ctrl+alt+t)
 $ cd Documents
+
 $ git clone git@github.com:GabrielSandoval/cafeuk.git
+
 $ cd cafeuk
+
 $ bundle install
+
 $ rake db:drop
+
 $ rake db:create
+
 $ rake db:migrate
+
 $ rake db:seed
+
 $ rails s
 
 OPEN BROWSER
