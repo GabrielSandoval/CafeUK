@@ -1,91 +1,95 @@
 .container
   .box
-    .col-lg-30
-      / BEGIN Portlet PORTLET
-      .portlet
-        .portlet-title
-          .caption.caption-red
-          %ul.nav.nav-tabs
-            %li.active
-              %a{"data-toggle" => "tab", :href => "#portlet_tab1"}
-                Drinks
-            %li
-              %a{"data-toggle" => "tab", :href => "#portlet_tab2"}
-                Cakes
-            %li
-              %a{"data-toggle" => "tab", :href => "#portlet_tab3"}
-                Paninis
-            %li
-              %a{"data-toggle" => "tab", :href => "#portlet_tab4"}
-                Salads
-
-        .portlet-body
-          .tab-content
-            #portlet_tab1.tab-pane.active
-              .col-lg-15
-                %h2.text-left
+    - if !current_user.nil? && current_user.admin
+      = render :partial=>'admin/products', :locals=>{:drinks => @drinks, :cakes => @cakes, :paninis => @paninis, :salads => @salads }
+      }
+    -else
+      .col-lg-30
+        / BEGIN Portlet PORTLET
+        .portlet
+          .portlet-title
+            .caption.caption-red
+            %ul.nav.nav-tabs
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#portlet_tab1"}
                   Drinks
-              .row
-                - @drinks.each do |drink| 
-                  .col-sm-3
-                    .card
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-                      .avatar{:align => "center"}
-                        = image_tag "drinks.jpg", :class=>"img img-responsive"
-                      .content.text-center
-                        %p
-                          = drink.name
-                        = drink.description
-                
-            #portlet_tab2.tab-pane
-              .col-lg-15
-                %h2.text-left
+              %li
+                %a{"data-toggle" => "tab", :href => "#portlet_tab2"}
                   Cakes
-              .row
-                - @cakes.each do |cake| 
-                  .col-sm-3
-                    .card
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-                      .avatar{:align => "center"}
-                        = image_tag "cakes.jpg", :class=>"img img-responsive"
-                      .content.text-center
-                        %p
-                          = cake.name
-                        = cake.description
-                        
-
-            #portlet_tab3.tab-pane
-              .col-lg-15
-                %h2.text-left
+              %li
+                %a{"data-toggle" => "tab", :href => "#portlet_tab3"}
                   Paninis
-              .row
-                - @paninis.each do |panini|
-                  .col-sm-3
-                    .card
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-                      .avatar{:align => "center"}
-                        = image_tag "paninis.jpg", :class=>"img img-responsive"
-                      .content.text-center
-                        %p
-                          = panini.name
-                        = panini.description
-                        
-            #portlet_tab4.tab-pane
-              .col-lg-15
-                %h2.text-left
+              %li
+                %a{"data-toggle" => "tab", :href => "#portlet_tab4"}
                   Salads
-              .row
-                - @salads.each do |salad|
-                  .col-sm-3
-                    .card
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
-                      .avatar{:align => "center"}
-                        = image_tag "salads.jpg", :class=>"img img-responsive"
-                      .content.text-center
-                        %p
-                          = salad.name
-                        = salad.description
-                        
-- if @cart
-  #shopping_cart
-    =render :partial => "carts/cart"
+
+          .portlet-body
+            .tab-content
+              #portlet_tab1.tab-pane.active
+                .col-lg-15
+                  %h2.text-left
+                    Drinks
+                .row
+                  - @drinks.each do |drink| 
+                    .col-sm-3
+                      .card
+                        / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                        .avatar{:align => "center"}
+                          = image_tag "drinks.jpg", :class=>"img img-responsive"
+                        .content.text-center
+                          %p
+                            = drink.name
+                          = drink.description
+                  
+              #portlet_tab2.tab-pane
+                .col-lg-15
+                  %h2.text-left
+                    Cakes
+                .row
+                  - @cakes.each do |cake| 
+                    .col-sm-3
+                      .card
+                        / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                        .avatar{:align => "center"}
+                          = image_tag "cakes.jpg", :class=>"img img-responsive"
+                        .content.text-center
+                          %p
+                            = cake.name
+                          = cake.description
+                          
+
+              #portlet_tab3.tab-pane
+                .col-lg-15
+                  %h2.text-left
+                    Paninis
+                .row
+                  - @paninis.each do |panini|
+                    .col-sm-3
+                      .card
+                        / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                        .avatar{:align => "center"}
+                          = image_tag "paninis.jpg", :class=>"img img-responsive"
+                        .content.text-center
+                          %p
+                            = panini.name
+                          = panini.description
+                          
+              #portlet_tab4.tab-pane
+                .col-lg-15
+                  %h2.text-left
+                    Salads
+                .row
+                  - @salads.each do |salad|
+                    .col-sm-3
+                      .card
+                        / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                        .avatar{:align => "center"}
+                          = image_tag "salads.jpg", :class=>"img img-responsive"
+                        .content.text-center
+                          %p
+                            = salad.name
+                          = salad.description
+                          
+  - if @cart
+    #shopping_cart
+      =render :partial => "carts/cart"

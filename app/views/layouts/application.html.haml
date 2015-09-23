@@ -23,9 +23,11 @@
 
   %body
     = render :partial => 'layouts/header'
-    = render :partial => 'layouts/navbar'
+
     .container
       - flash.each do |name, message|
         = content_tag :div, message, :id => "flash_#{name}"
     = yield
+
     = render :partial => 'layouts/footer' 
+
