@@ -1,14 +1,22 @@
 class CartsController < ApplicationController
 	before_filter :initialize_cart
+	respond_to :html, :js
+	
+	def index
+		@carts = Cart.all
+	end
 
-	def create
+	def show
+	end
+
+	def add
 		product_id = params[:product_id]
 		@product = Product.find(product_id)
 
 		if request.xhr?
 			@item = @cart.add(@product)
 			flash[:cart_notice] = "Added 1 #{@product.name}"
-			render :action => "add_with_ajax"
+			render :action => "refresh_shopping_cart"
 		elsif request.post?
 			@item = @cart.add(@product)
 			flash[:cart_notice] = "Added 1 #{@product.name}"
@@ -16,19 +24,13 @@ class CartsController < ApplicationController
 		else
 			render
 		end
-		# product_id = params[:product_id]
-		# @product = Product.find(product_id)
-		# @item = @cart.add(@product)
-		# flash[:cart_notice] = "Added #{@product.name}"
-		# redirect_to :menus
 	end
 
 	def remove
-		
 		if request.xhr?
 			@item = @cart.remove(params[:id])
 			flash.now[:cart_notice] = "Removed 1 #{@item.name}"
-			render :action => "remove_with_ajax"
+			render :action => "refresh_shopping_cart"
 		elsif request.post?
 			@item = @cart.remove(params[:id])
 			flash[:cart_notice] = "Removed 1 #{@item.name}"
@@ -42,7 +44,7 @@ class CartsController < ApplicationController
 		if request.xhr?
 			@cart.cart_items.destroy_all
 			flash.now[:cart_notice] = "Cleared the cart"
-			render :action => "clear_with_ajax"
+			render :action => "refresh_shopping_cart"
 		elsif request.post?
 			@cart.cart_items.destroy_all
 			flash[:cart_notice] = "Cleared the cart"
@@ -52,5 +54,10 @@ class CartsController < ApplicationController
 			redirect_to :controller => "menus"
 		end
 	end
+
+  def destroy
+    Cart.destroy(params[:id])
+    redirect_to carts_path, :notice => 'Order has been deleted.'
+  end
 
 end

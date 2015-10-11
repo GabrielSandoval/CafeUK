@@ -1,9 +1,9 @@
 .container-fluid.main-container
   .col-md-2.sidebar
     %ul.nav.nav-pills.nav-stacked
-      %li
-        = link_to "Home", page_path(:home)
       %li.active
+        = link_to "Home", page_path(:home)
+      %li
         = link_to "Products", products_path
       %li
         = link_to "Orders", carts_path

@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150920140210) do
   end
 
   create_table "carts", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,16 +59,6 @@ ActiveRecord::Schema.define(version: 20150920140210) do
     t.integer  "order_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.float    "cash_breakdown"
-    t.float    "change"
-    t.float    "total_balance"
-    t.boolean  "active"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   create_table "paninis", force: :cascade do |t|

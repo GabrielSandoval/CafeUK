@@ -1,0 +1,23 @@
+= form_for @reservation do |f|
+  %hr.colograph
+    .row
+      .col-xs-12.col-sm-12.col-md-12
+        .form-group
+          = f.text_field :table_number, :class=>"form-control input-lg", :tabindex=>"1", :placeholder=>"Table Number"
+         
+      .col-xs-12.col-sm-6.col-md-12
+        .form-group
+          = f.text_field :number_of_people, :class=>"form-control input-lg", :tabindex=>"2", :placeholder=>"Number of People"
+    
+      .col-xs-12.col-sm-12.col-md-12
+        .form-group
+          = f.date_field :date, :class=>"form-control input-lg", :tabindex=>"3", :placeholder=>"Date"
+         
+      .col-xs-12.col-sm-12.col-md-12
+        .form-group
+          = f.time_field :time, :class=>"form-control input-lg", :tabindex=>"4", :placeholder=>"Time"
+
+    %hr.colorgraph
+      .row
+        .col-lg-push-3.col-md-6
+          = f.submit :class=> "btn btn-primary btn-block btn-lg"

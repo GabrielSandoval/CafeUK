@@ -1,8 +1,7 @@
 .container
   .box
-    - if !current_user.nil? && current_user.admin
+    - if admin?
       = render :partial=>'admin/products', :locals=>{:drinks => @drinks, :cakes => @cakes, :paninis => @paninis, :salads => @salads }
-      }
     -else
       .col-lg-30
         / BEGIN Portlet PORTLET

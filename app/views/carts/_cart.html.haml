@@ -1,22 +1,3 @@
-/ <!-- <div class="container">
-/   <div class="row">
-/     <div class="box">
-
-		
-
-/ 		<h3>Your Shopping Cart</h3>
-/ 		<ul>
-/ 			<% @cart.cart_items.each do |item| %>
-			
-/ 			<% end %>
-/ 		</ul>	
-/ 		<p id="cart_total"><strong>Total: $<%= @cart.total %></strong></p>
-
-/ 		</div>
-/ 	</div>
-/ </div>
-/  -->
-
 .container
   .box
     .row
@@ -25,7 +6,7 @@
           %p#cart_notice
             = flash[:cart_notice]
         .div.pull-right
-          =link_to "Clear cart", clear_cart_path, :class=>"btn btn-danger", :data=>{:confirm=>"Are you sure?"}
+          = clear_cart_link
         %table.table.table-hover
           %thead
             %tr
@@ -66,3 +47,4 @@
                 %button.btn.btn-success{:type => "button"}
                   Checkout
                   %span.glyphicon.glyphicon-play
+}

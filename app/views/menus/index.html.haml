@@ -37,7 +37,7 @@
                           = drink.name
                         = drink.description
 
-                        = link_to 'Add to cart', carts_path(:product_id => drink), :method => 'POST'
+                        = add_product_link(drink)
 
                 
             #portlet_tab2.tab-pane
@@ -56,8 +56,7 @@
                           = cake.name
                         = cake.description
                         
-                        = link_to 'Add to cart', carts_path(:product_id => cake), :method => 'POST'
-
+                        = add_product_link(cake)
             #portlet_tab3.tab-pane
               .col-lg-15
                 %h2.text-left
@@ -74,7 +73,7 @@
                           = panini.name
                         = panini.description
                         
-                        = link_to 'Add to cart', carts_path(:product_id => panini), :method => 'POST'
+                        = add_product_link(panini)
 
             #portlet_tab4.tab-pane
               .col-lg-15
@@ -92,7 +91,7 @@
                           = salad.name
                         = salad.description
                         
-                        = link_to 'Add to cart', carts_path(:product_id => salad), :method => 'POST'
+                        = add_product_link(salad)
 - if @cart
   #shopping_cart
     =render :partial => "carts/cart"

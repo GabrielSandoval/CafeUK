@@ -16,4 +16,4 @@
       = "#{(item.price*item.quantity)}"
   %td.col-sm-1.col-md-1
     %span.glyphicon.glyphicon-remove
-      = link_to "Remove", remove_item_path(:id=>item.id), :class=>"btn btn-danger", :method=>"POST"
+      = remove_product_link(item.id)

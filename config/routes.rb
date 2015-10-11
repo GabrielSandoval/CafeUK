@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   root to: "pages#show", page: "home"
   get "/pages/*page" => "pages#show", :as => "page"
 
+  post "/cart/add(.:format)" => "carts#add", :as=> "add_item"
   post "/cart/remove(.:format)" => "carts#remove", :as=> "remove_item"
+  delete "/cart/destroy(.:format)" => "carts#destroy", :as=>"delete_order"
   get "/cart/clear" => "carts#clear", :as=> "clear_cart"
+  get "/carts" => "carts#index", :as=> "carts"
 
   resources :products
   resources :menus

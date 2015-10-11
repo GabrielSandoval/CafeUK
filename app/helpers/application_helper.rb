@@ -1,27 +1,23 @@
 module ApplicationHelper
 
-	def add_book_link(text, book)
-		link_to_remote text, {:url => {:controller => "cart",
-		:action => "add", :id => book}},
-		{:title => "Add to Cart",
-		:href => url_for( :controller => "cart",
-		:action => "add", :id => book)}
-	end
-
-	def remove_book_link(text, book)
-		link_to_remote text, {:url => {:controller => "cart",
-		:action => "remove",
-		:id => book}},
-		{:title => "Remove book",
-		:href => url_for( :controller => "cart",
-		:action => "remove", :id => book)}
+	def admin?
+		!(current_user == nil) && current_user.admin
 	end
 	
-	def clear_cart_link(text = "Clear Cart")
-		link_to_remote text,
-		{:url => { :controller => "cart",
-		:action => "clear" }},
-		{:href => url_for(:controller => "cart",
-		:action => "clear")}
+	def add_product_link(product)
+		link_to '+', add_item_path(:product_id => product), :remote=>true, :method=>"POST"
 	end
+
+	def remove_product_link(item)
+		link_to "-", remove_item_path(:id=>item), :class=>"btn btn-danger", :remote=>true, :method=>"POST"
+	end
+
+	def clear_cart_link
+		link_to "Clear cart", clear_cart_path, :class=>"btn btn-danger", :data=>{:confirm=>"Are you sure?"}, :remote=>true
+	end
+
+	def delete_order_link(cart)
+		link_to "Delete", delete_order_path(:id=>cart), :class=>"button btn btn-danger btn-xs", :method=>:delete, :data=>{:confirm=>"Are you sure?"}
+	end
+
 end

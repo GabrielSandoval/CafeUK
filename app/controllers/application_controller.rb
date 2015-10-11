@@ -5,15 +5,16 @@ class ApplicationController < ActionController::Base
 
 
 	def can_administer?
-	current_user.admin
+		current_user.admin
 	end
 
 	private
 
 	def initialize_cart
-		
-		@cart = session[:cart_id] ? Cart.find(session[:cart_id]) : Cart.create
-		session[:cart_id] = @cart.id
+		if !can_administer?
+			@cart = session[:cart_id] ? Cart.find(session[:cart_id]) : Cart.create(:user=>User.find(current_user))
+			session[:cart_id] = @cart.id
+		end
 	end
 
 	protected

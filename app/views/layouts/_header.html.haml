@@ -1,4 +1,4 @@
--if !(current_user == nil) && current_user.admin
+-if admin?
 	= render :partial=> 'layouts/admin_navbar'
 -else
 	.brand Home - Cafe UK
