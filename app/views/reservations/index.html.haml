@@ -10,7 +10,8 @@
 				= reservation.table_number
 				= reservation.number_of_people
 				= reservation.date
-				= reservation.time
+				-if !reservation.time.nil?
+					= "#{reservation.time.hour}:#{reservation.time.min}"
+				-else
+					= "n/a"
 				=link_to "Delete", reservation, :method => :delete, :data => {confirm: "Are you sure?"}
-			
-				= link_to "Mark as finished"

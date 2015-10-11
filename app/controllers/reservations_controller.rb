@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
   def create
   	reservation = Reservation.new(reservation_params)
     reservation.date_reserved = DateTime.now
-    reservation.user = "#{current_user.first_name} #{current_user.last_name}"
+    reservation.user = User.find(current_user)
     reservation.save
   	redirect_to reservations_path
   end
