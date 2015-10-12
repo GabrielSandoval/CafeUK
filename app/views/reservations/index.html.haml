@@ -3,15 +3,22 @@
 		- if !current_user.nil? && current_user.admin
 			=render :partial=>'admin/reservations', :locals=>{:reservations => @reservations}
 		-else
-				
-
-			RESERVATIONS
-			- @reservations.each do |reservation|
-				= reservation.table_number
-				= reservation.number_of_people
-				= reservation.date
-				-if !reservation.time.nil?
-					= "#{reservation.time.hour}:#{reservation.time.min}"
-				-else
-					= "n/a"
-				=link_to "Delete", reservation, :method => :delete, :data => {confirm: "Are you sure?"}
+			.col-lg-12
+				%hr
+				.pull-right= link_to "Back", :back, :class=>"btn btn-primary btn-xs"
+				%h2.text-center
+					%strong My Reservations
+				%table.table.table-striped.custab
+					%thead
+						%tr
+							%th Date
+							%th Time
+							%th Table Number
+							%th Number of Seats
+						- @reservations.each do |reservation|
+							%tr
+								%td= "#{reservation.date.month}-#{reservation.date.day}-#{reservation.date.year}"
+								%td= "#{reservation.time.hour}:#{reservation.time.min}"
+								%td= reservation.table_number
+								%td= reservation.number_of_people
+							

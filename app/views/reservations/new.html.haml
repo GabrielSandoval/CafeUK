@@ -4,9 +4,9 @@
     .col-lg-12
       .pull-right
         - if admin?
-          = link_to "View all reservations", reservations_path
+          = link_to "View all reservations", reservations_path, :class=>"btn btn-primary btn-xs"
         - else
-          = link_to "View my reservations", reservations_path 
+          = link_to "View my reservations", reservations_path, :class=>"btn btn-primary btn-xs"
     .col-lg-12
       %h2.text-center Please fill up this from to Reserve a table in Cafe UK
       =render "form"

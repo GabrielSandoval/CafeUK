@@ -5,11 +5,11 @@ module ApplicationHelper
 	end
 	
 	def add_product_link(product)
-		link_to '+', add_item_path(:product_id => product), :remote=>true, :method=>"POST"
+		link_to '+', add_item_path(:product_id => product), :remote=>true, :method=>"POST", :class=>"btn btn-success"
 	end
 
 	def remove_product_link(item)
-		link_to "-", remove_item_path(:id=>item), :class=>"btn btn-danger", :remote=>true, :method=>"POST"
+		link_to "-", remove_item_path(:id=>item), :class=>"btn btn-warning", :remote=>true, :method=>"POST"
 	end
 
 	def clear_cart_link

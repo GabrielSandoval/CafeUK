@@ -54,7 +54,7 @@
                   %td= reservation.table_number
                   %td
                     %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
-                      = link_to "Edit", edit_reservation_path(reservation), :class=>"btn.btn-primary.btn-xs"
+                      = link_to "Edit", edit_reservation_path(reservation), :class=>"btn btn-primary btn-xs"
                   %td
                     %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
                       = link_to "Delete", reservation_path(reservation), :method=> :delete, :data=>{:confirm=>"Are you sure?"},  :class=>"btn btn-primary btn-xs"
