@@ -1,2 +1,0 @@
-class PaninisController < ApplicationController
-end
