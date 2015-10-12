@@ -1,2 +1,0 @@
-class PastasController < ApplicationController
-end
