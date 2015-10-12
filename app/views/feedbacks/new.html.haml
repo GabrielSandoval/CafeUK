@@ -1,0 +1,21 @@
+.container
+  .row
+    .box
+      .col-lg-12
+        .pull-right= link_to "View my feedbacks", feedbacks_path, :class=>"btn btn-primary"
+        %hr
+          %h2.intro-text.text-center
+            Contact Form
+          %hr
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem.
+            = form_for @feedback do |f|
+              .row
+                .form-group.col-lg-12
+                  =f.label "Subject"
+                  =f.text_field :subject, :class=>"input form-control"
+                .form-group.col-lg-12
+                  %label Message
+                  =f.text_area :message, :class=>"textarea form-control",:style=>{:rows=>"6"}
+                .form-group.col-lg-12
+                  =f.submit :submit, :class=>"button btn btn-primary"
+                    

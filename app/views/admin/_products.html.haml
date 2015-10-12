@@ -10,7 +10,7 @@
       %li
         = link_to "Reservations", reservations_path
       %li
-        = link_to "Feedback", "#"
+        = link_to "Feedback", feedbacks_path
 
   .col-md-10
     / BEGIN Portlet PORTLET
@@ -41,11 +41,9 @@
               - drinks.each do |drink| 
                 .col-sm-3
                   .card
-                    .pull-right
-                      = link_to "X", product_path(drink), :method=> :delete, :data=>{:confirm=>"Are you sure?"}
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = image_tag "drinks.jpg", :class=>"img img-responsive"
+                      =link_to (image_tag "drinks.jpg", :class=>"img img-responsive"), product_path(drink)
                     .content.text-center
                       %p
                         = drink.name
@@ -60,11 +58,9 @@
               - cakes.each do |cake| 
                 .col-sm-3
                   .card
-                    .pull-right
-                      = link_to "X", product_path(cake), :method=> :delete, :data=>{:confirm=>"Are you sure?"}
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = image_tag "cakes.jpg", :class=>"img img-responsive"
+                      =link_to (image_tag "cakes.jpg", :class=>"img img-responsive"), product_path(cake)
                     .content.text-center
                       %p
                         = cake.name
@@ -79,11 +75,9 @@
               - paninis.each do |panini|
                 .col-sm-3
                   .card
-                    .pull-right
-                      = link_to "X", product_path(panini), :method=> :delete, :data=>{:confirm=>"Are you sure?"}
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = image_tag "paninis.jpg", :class=>"img img-responsive"
+                      =link_to (image_tag "paninis.jpg", :class=>"img img-responsive"), product_path(panini)
                     .content.text-center
                       %p
                         = panini.name
@@ -97,11 +91,9 @@
               - salads.each do |salad|
                 .col-sm-3
                   .card
-                    .pull-right
-                      = link_to "X", product_path(salad), :method=> :delete, :data=>{:confirm=>"Are you sure?"}
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = image_tag "salads.jpg", :class=>"img img-responsive"
+                      =link_to (image_tag "salads.jpg", :class=>"img img-responsive"), product_path(salad)
                     .content.text-center
                       %p
                         = salad.name

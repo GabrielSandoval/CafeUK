@@ -1,0 +1,24 @@
+.container
+  .box
+    .container-fluid
+      .content-wrapper
+        .item-container
+          .container
+            .col-md-15
+              .product.col-md-3.service-image-left
+                %center
+                  =image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
+                  
+            .col-md-7
+              %h4 Product Information
+              %hr
+                .product-title= "Name: #{@product.name}"
+                .product-desc= "Description: #{@product.description}"
+                .product-price= "Price: #{@product.default_price}"
+                %hr
+                  .btn-group.cart
+                    %form{:action => "adminproductedit.html"}
+                      =link_to "Edit", edit_product_path(@product), :class=>"input btn btn-success"
+                  .btn-group.wishlist
+                    %form{:action => ""}
+                      =link_to "Delete", product_path(@product), :method=>:delete, :data=>{:confirm=>"Are you sure?"}, :class=>"input btn btn-danger"

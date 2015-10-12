@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
 
   def update
     reservation = Reservation.find(params[:id])
-    if Reservation.update_attributes(reservation_params)
+    if reservation.update_attributes(reservation_params)
       redirect_to reservations_path, :notice => 'Your reservation has successfully been updated.'
     else
       redirect_to :back, :alert => 'There was an error updating your reservation.'

@@ -1,0 +1,24 @@
+.container
+  .box
+    - if !current_user.nil? && current_user.admin
+      =render :partial=>'admin/feedbacks', :locals=>{:feedbacks => @feedbacks}
+    -else
+      .col-lg-12
+        .pull-right= link_to "Back", :back, :class=>"btn btn-primary btn-xs"
+        %hr
+          %h2.text-center
+            My Feedbacks
+          %table.table.table-striped.custab
+            %thead
+              %tr
+                %th Date
+                %th Time
+                %th Subject
+                %th Message
+              - @feedbacks.each do |feedback|
+                %tr
+                  %td= "#{feedback.date.month}-#{feedback.date.day}-#{feedback.date.year}"
+                  %td= "#{feedback.time.hour}:#{feedback.time.min}"
+                  %td= feedback.subject
+                  %td= feedback.message
+				

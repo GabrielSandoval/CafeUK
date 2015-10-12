@@ -1,0 +1,26 @@
+.container
+  .box 
+    .container-fluid
+      .content-wrapper
+        .item-container
+          .container
+            .col-md-15
+              .product.col-md-3.service-image-left
+                %center
+                  = image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
+                  
+            .col-md-7
+              =form_for @product do |f|
+                %h4 Product Information
+                %hr
+                  .product-title
+                    = f.label :name
+                    = f.text_field :name
+                  .product-desc
+                    = f.label :description
+                    = f.text_field :description
+                  .product-price
+                    = f.label :price
+                    = f.text_field :default_price, :type=>"number"
+                  .product-submit
+                    = f.submit :class=>"btn btn-success"

@@ -10,7 +10,7 @@
       %li.active
         = link_to "Reservations", reservations_path
       %li
-        = link_to "Feedback", "#"
+        = link_to "Feedback", feedbacks_path
         
   / TABLE
   .col-md-10
@@ -57,4 +57,4 @@
                       = link_to "Edit", edit_reservation_path(reservation), :class=>"btn btn-primary btn-xs"
                   %td
                     %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
-                      = link_to "Delete", reservation_path(reservation), :method=> :delete, :data=>{:confirm=>"Are you sure?"},  :class=>"btn btn-primary btn-xs"
+                      = link_to "Delete", reservation_path(reservation), :method=> :delete, :data=>{:confirm=>"Are you sure?"},  :class=>"btn btn-danger btn-xs"

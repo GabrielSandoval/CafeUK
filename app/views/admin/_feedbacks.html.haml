@@ -1,0 +1,35 @@
+.container-fluid.main-container
+  .col-md-2.sidebar
+    %ul.nav.nav-pills.nav-stacked
+      %li
+        = link_to "Home", page_path(:home)
+      %li
+        = link_to "Products", products_path
+      %li
+        = link_to "Orders", carts_path
+      %li
+        = link_to "Reservations", reservations_path
+      %li.active
+        = link_to "Feedback", feedbacks_path
+        
+  .col-md-10
+    .col-md-15
+      %h4 List of Feedbacks
+      .table-responsive
+        %table#mytable.table.table-bordred.table-striped
+          %thead
+            %th Date
+            %th Customer Name
+            %th Customer Email
+            %th Subject
+            %th Message
+            %th Delete
+          %tbody
+            - @feedbacks.each do |feedback|
+              %tr
+                %td= "#{feedback.date.month}-#{feedback.date.day}-#{feedback.date.year}"
+                %td= "#{feedback.user.first_name} #{feedback.user.last_name}"
+                %td= feedback.user.email
+                %td= feedback.subject
+                %td= feedback.message
+                %td= link_to "Delete", feedback_path(feedback), :method=>:delete, :date=>{:confirm=>"Are you sure?"}, :class=>"button btn btn-danger btn-xs"

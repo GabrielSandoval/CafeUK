@@ -21,8 +21,9 @@ Rails.application.routes.draw do
 
   resources :products
   resources :menus
-  resource :carts
+  resources :carts
 
+  resources :feedbacks
   resources :reservations
 
   # Example of regular route:
