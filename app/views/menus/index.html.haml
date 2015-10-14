@@ -1,7 +1,6 @@
 .container
   .box
     .col-lg-30
-      / BEGIN Portlet PORTLET
       .portlet
         .portlet-title
           .caption.caption-red
@@ -27,7 +26,7 @@
                   Drinks
               .row
                 - @drinks.each do |drink| 
-                  .col-sm-3
+                  .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}
@@ -46,7 +45,7 @@
                   Cakes
               .row
                 - @cakes.each do |cake| 
-                  .col-sm-3
+                  .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}
@@ -63,7 +62,7 @@
                   Paninis
               .row
                 - @paninis.each do |panini|
-                  .col-sm-3
+                  .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}
@@ -81,7 +80,7 @@
                   Salads
               .row
                 - @salads.each do |salad|
-                  .col-sm-3
+                  .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .card
                       / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}

@@ -12,13 +12,23 @@
             .col-md-7
               %h4 Product Information
               %hr
-                .product-title= "Name: #{@product.name}"
-                .product-desc= "Description: #{@product.description}"
-                .product-price= "Price: #{@product.default_price}"
+                %table
+                  %tr.product-title
+                    %td Name: 
+                    %td
+                      ="#{@product.name}"
+                  %tr.product-desc
+                    %td Decription: 
+                    %td
+                      ="#{@product.description}"
+                  %tr.product-price
+                    %td Price:
+                    %td
+                      ="#{@product.default_price}"
                 %hr
-                  .btn-group.cart
-                    %form{:action => "adminproductedit.html"}
-                      =link_to "Edit", edit_product_path(@product), :class=>"input btn btn-success"
-                  .btn-group.wishlist
-                    %form{:action => ""}
-                      =link_to "Delete", product_path(@product), :method=>:delete, :data=>{:confirm=>"Are you sure?"}, :class=>"input btn btn-danger"
+                  .btn-group
+                    =link_to "Edit", edit_product_path(@product), :class=>"input btn btn-success"
+                  .btn-group
+                    =link_to "Delete", product_path(@product), :method=>:delete, :data=>{:confirm=>"Are you sure?"}, :class=>"input btn btn-danger"
+                  .btn-group
+                    =link_to "Back", page_path(:home), :class=>" btn btn-primary"

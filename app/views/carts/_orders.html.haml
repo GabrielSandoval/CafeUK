@@ -18,9 +18,9 @@
             -cart.cart_items.each do |cart_item|
               %br= "#{cart_item.name} x #{cart_item.quantity}"
           %td= "₱ #{cart.total}"
-          %td
-            %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
-            = link_to "Edit", edit_cart_path(cart), :class=>"button btn btn-primary btn-xs"
+          / %td
+          /   %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
+          /   = link_to "Edit", edit_cart_path(cart), :class=>"button btn btn-primary btn-xs"
           %td
             %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
             = delete_order_link(cart)

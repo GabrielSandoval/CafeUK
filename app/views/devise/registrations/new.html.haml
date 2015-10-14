@@ -21,21 +21,17 @@
           .row
             .col-xs-12.col-sm-12.col-md-12
               .form-group
+                = f.password_field :password, :class=>"form-control input-lg", :placeholder=>"Password", :tabindex=>4
+            .col-xs-12.col-sm-12.col-md-12.text-center
+              .form-group
                 - if @minimum_password_length
                   %em
                     (#{@minimum_password_length} characters minimum)
-            .col-xs-12.col-sm-6.col-md-6
-              .form-group
-                = f.password_field :password, :class=>"form-control input-lg", :placeholder=>"Password", :tabindex=>4
-            .col-xs-12.col-sm-6.col-md-6
+            .col-xs-12.col-sm-12.col-md-12
               .form-group
                 = f.password_field :password_confirmation, :class=>"form-control input-lg", :placeholder=>"Confirm Password", :tabindex=>5
           .row
-            .col-xs-4.col-sm-3.col-md-3
-              %span.button-checkbox
-                = f.check_box :t_and_c, :tabindex=>6
-                %input#t_and_c.hidden{:name => "t_and_c", :type => "checkbox", :value => "1"}
-            .col-xs-8.col-sm-9.col-md-9
+            .col-xs-12.col-sm-12.col-md-12.text-center
               By clicking
               = succeed "," do
                 %strong.label.label-primary Register
