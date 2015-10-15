@@ -42,7 +42,7 @@
                   %td= "#{reservation.user.first_name} #{reservation.user.last_name}"
                   %td
                     -if !reservation.date.nil?
-                      = "#{reservation.date.month}-#{reservation.date.day}-#{reservation.date.year}"
+                      = "#{month_number_to_word(reservation.date.month.to_i)} #{reservation.date.day}, #{reservation.date.year}"
                     -else
                       = "n/a"
                   %td

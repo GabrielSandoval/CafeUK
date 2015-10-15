@@ -39,7 +39,7 @@
                     %td= @user.location
                   %tr
                     %td Birthday
-                    %td= @user.birthday
+                    %td= "#{month_number_to_word(@user.birthday.month.to_i)} #{@user.birthday.day}, #{@user.birthday.year}"
                   %tr
                     %td Email
                     %td= @user.email

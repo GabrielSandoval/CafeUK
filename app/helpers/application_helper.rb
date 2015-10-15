@@ -20,4 +20,9 @@ module ApplicationHelper
 		link_to "Delete", delete_order_path(:id=>cart), :class=>"button btn btn-danger btn-xs", :method=>:delete, :data=>{:confirm=>"Are you sure?"}
 	end
 
+	def month_number_to_word(month)
+		a = ["", "January","February","March","April","May","June","July","August","September","October","November","December"]
+		a[month]
+	end
+
 end

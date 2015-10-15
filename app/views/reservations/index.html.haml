@@ -17,8 +17,8 @@
 							%th Number of Seats
 						- @reservations.each do |reservation|
 							%tr
-								%td= "#{reservation.date.month}-#{reservation.date.day}-#{reservation.date.year}"
-								%td= "#{reservation.time.hour}:#{reservation.time.min}"
+								%td= "#{month_number_to_word(reservation.date.month.to_i)} #{reservation.date.day}, #{reservation.date.year}"
+								%td= "#{reservation.time.hour}:#{format('%02d', reservation.time.min)}"
 								%td= reservation.table_number
 								%td= reservation.number_of_people
 							

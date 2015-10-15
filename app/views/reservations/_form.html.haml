@@ -3,19 +3,19 @@
     .row
       .col-xs-12.col-sm-12.col-md-12
         .form-group
-          = f.text_field :table_number, :class=>"form-control input-lg", :tabindex=>"1", :placeholder=>"Table Number"
+          = f.number_field :table_number, :in=>1..20, :class=>"form-control input-lg", :tabindex=>"1", :placeholder=>"Table Number"
          
       .col-xs-12.col-sm-6.col-md-12
         .form-group
-          = f.text_field :number_of_people, :class=>"form-control input-lg", :tabindex=>"2", :placeholder=>"Number of People"
+          = f.number_field :number_of_people, :in=>1..20, :class=>"form-control input-lg", :tabindex=>"2", :placeholder=>"Number of People"
     
       .col-xs-12.col-sm-12.col-md-12
         .form-group
-          = f.date_field :date, :class=>"form-control input-lg", :tabindex=>"3", :placeholder=>"Date"
+          = f.date_select :date, :class=>"form-control input-lg", :tabindex=>"3", :placeholder=>"Date", :type=>"date"
          
       .col-xs-12.col-sm-12.col-md-12
         .form-group
-          = f.time_field :time, :class=>"form-control input-lg", :tabindex=>"4", :placeholder=>"Time"
+          = f.time_select :time, :class => 'form-control input-lg', :tabindex=>"4"
 
     %hr.colorgraph
       .row

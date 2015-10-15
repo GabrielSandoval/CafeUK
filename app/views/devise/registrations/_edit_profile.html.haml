@@ -16,7 +16,7 @@
   .form-group
     = f.label :contact_number, 'Contact Number:', :class => 'control-label col-md-2'
     .col-md-8
-      = f.number_field :contact_number, :class => 'form-control'
+      = f.number_field :contact_number, :in=>0..99999999999, :placeholder=>"09xxxxxxxxx", :class => 'form-control'
   .form-group
     = f.label :gender, 'Gender:', :class => 'control-label col-md-2'
     .col-md-8
@@ -30,9 +30,9 @@
     .col-md-8
       = f.text_field :location, :class => 'form-control'
   .form-group
-    = f.label :birthday, 'Birthday:', :class => 'control-label col-md-2'
+    = f.label :birthday, :class => 'control-label col-md-2'
     .col-md-8
-      = f.date_field :birthday
+      = f.date_select :birthday
   .form-group
     = f.label :bio, 'Bio:', :class => 'control-label col-md-2'
     .col-md-8

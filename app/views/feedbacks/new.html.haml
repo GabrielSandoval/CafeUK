@@ -17,5 +17,6 @@
                   %label Message
                   =f.text_area :message, :class=>"textarea form-control",:style=>{:rows=>"6"}
                 .form-group.col-lg-12
-                  =f.submit :submit, :class=>"button btn btn-primary"
+                  =f.submit "Submit", :class=>"button btn btn-primary"
+                  = link_to "Back", :back, :class=>"btn btn-primary"
                     

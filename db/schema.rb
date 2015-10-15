@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(version: 20151012112825) do
   end
 
   create_table "carts", force: :cascade do |t|
+    t.boolean  "finalized",  default: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "drinks", force: :cascade do |t|
