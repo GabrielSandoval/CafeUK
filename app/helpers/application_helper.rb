@@ -5,7 +5,7 @@ module ApplicationHelper
 	end
 	
 	def add_product_link(product)
-		link_to '+', add_item_path(:product_id => product), :remote=>true, :method=>"POST", :class=>"btn btn-success"
+		link_to (image_tag "add_button.png", :class=>"img img-responsive"), add_item_path(:product_id => product), :remote=>true, :method=>"POST", :class=>"btn btn-circle"
 	end
 
 	def remove_product_link(item)
