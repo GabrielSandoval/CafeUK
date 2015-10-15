@@ -3,7 +3,12 @@ class CartsController < ApplicationController
 	respond_to :html, :js
 	
 	def index
-		@carts = Cart.all
+		if can_administer?
+			@carts = Cart.find_orders
+		else
+			@carts = Cart.joins(:user).where(user: current_user)
+		end
+	
 	end
 
 	def show
@@ -59,5 +64,36 @@ class CartsController < ApplicationController
     Cart.destroy(params[:id])
     redirect_to carts_path, :notice => 'Order has been deleted.'
   end
+
+  def update
+  	cart = Cart.find(params[:id])
+
+  	if cart.update_attributes(cart_params)
+      
+      if can_administer?
+      	
+      	if cart.served
+	      	owner = User.find(cart.user)
+	  		p = owner.points + cart.total/10
+	  		owner.update_attributes(:points => p)
+	  	end
+      	redirect_to carts_path, :notice => 'Your order has successfully been marked as served.'
+      
+      else
+		if cart.finalized
+		cart.update_attributes(:time_ordered => DateTime.now)
+		end
+      	redirect_to page_path(:home), :notice => 'Thank you for ordering! Your food will be served in a while.'
+      end
+
+    else
+      redirect_to :back, :alert => 'There was an error updating the order.'
+    end   
+  end
+
+  private
+  	def cart_params
+  		params.require(:cart).permit(:finalized, :served)
+  	end
 
 end

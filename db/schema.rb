@@ -41,10 +41,12 @@ ActiveRecord::Schema.define(version: 20151012112825) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.boolean  "finalized",  default: false
+    t.boolean  "finalized",    default: false
+    t.boolean  "served",       default: false
+    t.datetime "time_ordered"
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "drinks", force: :cascade do |t|
@@ -168,7 +170,7 @@ ActiveRecord::Schema.define(version: 20151012112825) do
     t.boolean  "t_and_c"
     t.boolean  "admin"
     t.boolean  "member"
-    t.integer  "points"
+    t.integer  "points",                 default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

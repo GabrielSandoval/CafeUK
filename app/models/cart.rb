@@ -45,6 +45,10 @@ class Cart < ActiveRecord::Base
 			CartItem.destroy(ci.id)
 		end
 		return ci
+	end
+
+	def self.find_orders
+		where('served=false AND finalized=true').order("time_ordered")
 	end	
 
 end

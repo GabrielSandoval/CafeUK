@@ -1,11 +1,13 @@
 .container
 	.box
-		- if !current_user.nil? && current_user.admin
+		- if admin?
 			=render :partial=>'admin/reservations', :locals=>{:reservations => @reservations}
 		-else
 			.col-lg-12
 				%hr
-				.pull-right= link_to "Back", :back, :class=>"btn btn-primary btn-xs"
+				.pull-right
+					= link_to "Create Reservations", new_reservation_path, :class=>"btn btn-primary btn-md"
+					= link_to "Back", :back, :class=>"btn btn-primary btn-md"
 				%h2.text-center
 					%strong My Reservations
 				%table.table.table-striped.custab

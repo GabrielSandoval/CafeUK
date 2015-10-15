@@ -13,6 +13,6 @@ class AddColumnsToUser < ActiveRecord::Migration
       add_column :users, :t_and_c, :boolean
       add_column :users, :admin, :boolean
       add_column :users, :member, :boolean
-      add_column :users, :points, :integer
+      add_column :users, :points, :integer, :default=>0
   end
 end

@@ -5,8 +5,8 @@
     -else
       .col-lg-12
         .pull-right
-          = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-primary btn-xs"
-          = link_to "Back", :back, :class=>"btn btn-primary btn-xs"
+          = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-primary btn-md"
+          = link_to "Back", :back, :class=>"btn btn-primary btn-md"
         %hr
           %h2.text-center
             My Feedbacks
@@ -19,8 +19,8 @@
                 %th Message
               - @feedbacks.each do |feedback|
                 %tr
-                  %td= "#{feedback.date.month}-#{feedback.date.day}-#{feedback.date.year}"
-                  %td= "#{feedback.time.hour}:#{feedback.time.min}"
+                  %td= "#{month_number_to_word(feedback.date.month.to_i)} #{feedback.date.day}, #{feedback.date.year}"
+                  %td= "#{feedback.time.hour}:#{format('%02d', feedback.time.min)}"
                   %td= feedback.subject
                   %td= feedback.message
 				

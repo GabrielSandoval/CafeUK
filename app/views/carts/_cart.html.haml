@@ -1,7 +1,7 @@
 .container
   .box
     .row
-      .col-sm-12.col-md-12.col-xs-12
+      .col-sm-12.col-md-12.col-xs-12.text-center
         - if flash[:cart_notice]
           %p#cart_notice
             = flash[:cart_notice]
@@ -43,8 +43,6 @@
               %td
               %td  
               %td
+                = link_to "Submit", cart_path(@cart, :cart => {:finalized => 1}),  :method => :put, :class=>"btn btn-success"
               %td
-                %button.btn.btn-success{:type => "button"}
-                  Checkout
-                  %span.glyphicon.glyphicon-play
-}
+                = link_to "Back", :back, :class=>"btn btn-primary"

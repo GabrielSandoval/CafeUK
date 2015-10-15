@@ -28,12 +28,11 @@
                 - @drinks.each do |drink| 
                   .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .menu-thumbnail
-                      .div
-                        .avatar{:align => "center"}
-                          = image_tag "drinks.jpg", :class=>"img img-responsive"
-                        .mask1
-                          #add_button
-                            = add_product_link(drink)
+                      .avatar{:align => "center"}
+                        = image_tag "drinks.jpg", :class=>"img img-responsive"
+                      .mask1
+                        .add_button
+                          = add_product_link(drink)
                       .content
                         %p
                           = drink.name
@@ -47,15 +46,16 @@
                 - @cakes.each do |cake| 
                   .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .menu-thumbnail
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}
                         = image_tag "cakes.jpg", :class=>"img img-responsive"
-                      .content.text-center
+                      .mask1
+                        .add_button
+                          = add_product_link(cake)
+                      .content
                         %p
                           = cake.name
                         = cake.description
-                      .center
-                        = add_product_link(cake)
+
             #portlet_tab3.tab-pane
               .col-lg-15
                 %h2.text-left
@@ -64,15 +64,16 @@
                 - @paninis.each do |panini|
                   .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .menu-thumbnail
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}
                         = image_tag "paninis.jpg", :class=>"img img-responsive"
-                      .content.text-center
+                      .mask1
+                        .add_button
+                          = add_product_link(panini)
+                      .content
                         %p
                           = panini.name
                         = panini.description
-                      .center
-                        = add_product_link(panini)
+
 
             #portlet_tab4.tab-pane
               .col-lg-15
@@ -82,15 +83,16 @@
                 - @salads.each do |salad|
                   .col-xs-12.col-sm-6.col-md-4.col-lg-3
                     .menu-thumbnail
-                      / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                       .avatar{:align => "center"}
                         = image_tag "salads.jpg", :class=>"img img-responsive"
-                      .content.text-center
+                      .mask1
+                        .add_button
+                          = add_product_link(salad)
+                      .content
                         %p
                           = salad.name
                         = salad.description
-                      .center
-                        = add_product_link(salad)
+
 - if @cart
   #shopping_cart
     =render :partial => "carts/cart"

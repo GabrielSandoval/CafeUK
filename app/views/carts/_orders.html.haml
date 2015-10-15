@@ -2,17 +2,15 @@
   %table#mytable.table.table-bordred.table-striped
     %thead
       %th Order ID
-      %th Table Number
       %th Customer Name
       %th Order
       %th Total Price
-      %th Edit
+      %th Mark as Served
       %th Delete
     %tbody
       - carts.each do |cart|
         %tr
           %td= cart.id
-          %td= "cart.table"
           %td= display_cart_owner(cart)
           %td
             -cart.cart_items.each do |cart_item|
@@ -22,8 +20,10 @@
           /   %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
           /   = link_to "Edit", edit_cart_path(cart), :class=>"button btn btn-primary btn-xs"
           %td
-            %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
+            = link_to "Mark as Served", cart_path(cart, :cart => {:served => 1}),  :method => :put, :class=>"btn btn-success btn-xs"
+          %td
             = delete_order_link(cart)
+
               
                 
     /         .clearfix

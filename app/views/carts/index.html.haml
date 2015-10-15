@@ -1,19 +1,49 @@
 .container
-  .box   
-    .container-fluid.main-container
-      .col-md-2.sidebar
-        %ul.nav.nav-pills.nav-stacked
-          %li
-            = link_to "Home", page_path(:home)
-          %li
-            = link_to "Products", products_path
-          %li.active
-            = link_to "Orders", carts_path
-          %li
-            = link_to "Reservations", reservations_path
-          %li
-            = link_to "Feedback", feedbacks_path
-      .col-md-10
-        %h4 List of Orders
-        #refresh_order_list
-          = render :partial=> "orders", :locals=> {:carts => @carts}
+  .box  
+    - if admin?
+      .container-fluid.main-container
+        .col-md-2.sidebar
+          %ul.nav.nav-pills.nav-stacked
+            %li
+              = link_to "Home", page_path(:home)
+            %li
+              = link_to "Products", products_path
+            %li.active
+              = link_to "Orders", carts_path
+            %li
+              = link_to "Reservations", reservations_path
+            %li
+              = link_to "Feedback", feedbacks_path
+        .col-md-10
+          %h4 List of Orders
+          #refresh_order_list
+            = render :partial=> "orders", :locals=> {:carts => @carts}
+    - else
+      .col-lg-12
+        .pull-right
+          = link_to "Order Now", menus_path, :class=>"btn btn-primary btn-md"
+          = link_to "Back", :back, :class=>"btn btn-primary btn-md"
+        %hr
+          %h2.text-center
+            My Orders
+          %table.table.table-striped.custab
+            %thead
+              %tr
+                %th Date
+                %th Items
+                %th Status
+                %th Total Price
+              - @carts.each do |cart|
+                -if cart.finalized
+                  %tr
+                    %td= "#{month_number_to_word(cart.time_ordered.month.to_i)} #{cart.time_ordered.day}, #{cart.time_ordered.year}"
+                    %td
+                      -cart.cart_items.each do |cart_item|
+                        %br= "#{cart_item.name} x #{cart_item.quantity}"
+                    %td
+                      - if cart.served
+                        = "Served"
+                      - else
+                        = "On queue"
+                    %td= "₱ #{cart.total}"
+              
