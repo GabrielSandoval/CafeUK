@@ -38,46 +38,44 @@
               %h2.text-left
                 Drinks
             .row
-              - drinks.each do |drink| 
-                .col-sm-3
-                  .card
+              - @drinks.each do |drink| 
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3
+                  .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      =link_to (image_tag "drinks.jpg", :class=>"img img-responsive"), product_path(drink)
+                      = link_to (image_tag "drinks.jpg", :class=>"img img-responsive"), product_path(drink)
                     .content.text-center
                       %p
                         = drink.name
                       = drink.description
-
               
           #portlet_tab2.tab-pane
             .col-lg-15
               %h2.text-left
                 Cakes
             .row
-              - cakes.each do |cake| 
-                .col-sm-3
-                  .card
+              - @cakes.each do |cake| 
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3
+                  .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      =link_to (image_tag "cakes.jpg", :class=>"img img-responsive"), product_path(cake)
+                      = link_to (image_tag "cakes.jpg", :class=>"img img-responsive"), product_path(cake)
                     .content.text-center
                       %p
                         = cake.name
                       = cake.description
-                      
 
           #portlet_tab3.tab-pane
             .col-lg-15
               %h2.text-left
                 Paninis
             .row
-              - paninis.each do |panini|
-                .col-sm-3
-                  .card
+              - @paninis.each do |panini|
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3
+                  .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      =link_to (image_tag "paninis.jpg", :class=>"img img-responsive"), product_path(panini)
+                      = link_to (image_tag "paninis.jpg", :class=>"img img-responsive"), product_path(panini)
                     .content.text-center
                       %p
                         = panini.name
@@ -88,12 +86,12 @@
               %h2.text-left
                 Salads
             .row
-              - salads.each do |salad|
-                .col-sm-3
-                  .card
+              - @salads.each do |salad|
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3
+                  .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      =link_to (image_tag "salads.jpg", :class=>"img img-responsive"), product_path(salad)
+                      = link_to (image_tag "salads.jpg", :class=>"img img-responsive"), product_path(salad)
                     .content.text-center
                       %p
                         = salad.name

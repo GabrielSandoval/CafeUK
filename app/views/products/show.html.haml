@@ -6,9 +6,10 @@
           .container
             .col-md-15
               .product.col-md-3.service-image-left
-                %center
-                  =image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
-                  
+                .menu-thumbnail
+                  %center
+                    =image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
+                    
             .col-md-7
               %h4 Product Information
               %hr
