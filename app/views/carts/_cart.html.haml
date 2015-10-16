@@ -22,7 +22,6 @@
               - @cart.cart_items.each do |item|
                 .div{:id=>"cart_item_#{item.product_id}"}
                   = render :partial => "carts/item", :locals =>{:item => item}
-
             %tr
               %td  
               %td  
@@ -35,7 +34,6 @@
                 %h3
                   %strong
                     =@cart.total
-
             %tr
               %td  
               %td  
