@@ -83,6 +83,8 @@ class CartsController < ApplicationController
 		if cart.finalized
 		cart.update_attributes(:time_ordered => DateTime.now)
 		end
+		destroy_cart_session
+		destroy_unsettled_carts
       	redirect_to page_path(:home), :notice => 'Thank you for ordering! Your food will be served in a while.'
       end
 
@@ -94,6 +96,16 @@ class CartsController < ApplicationController
   private
   	def cart_params
   		params.require(:cart).permit(:finalized, :served)
+  	end
+
+  	def destroy_unsettled_carts
+  		unsettled_carts = Cart.joins(:user).where(user: current_user)
+
+  		unsettled_carts.each do |unsettled_cart|
+  			if !unsettled_cart.finalized
+  				unsettled_cart.destroy
+  			end
+  		end
   	end
 
 end

@@ -41,7 +41,10 @@
 .container
   .row
     .box
-      .col-md-12
+      .col-md-12.intro-text.text-center
         %hr
-          %h2.intro-text.text-center
-            =link_to "Send us your feedback!", new_feedback_path, :class=>"btn btn-success btn-lg"
+        %p How was your experience?
+        %hr
+      .col-md-12
+        %h2.intro-text.text-center
+          =link_to "Send us your feedback!", new_feedback_path, :class=>"btn btn-success btn-lg"

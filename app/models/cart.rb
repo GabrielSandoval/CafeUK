@@ -49,6 +49,6 @@ class Cart < ActiveRecord::Base
 
 	def self.find_orders
 		where('served=false AND finalized=true').order("time_ordered")
-	end	
+	end
 
 end

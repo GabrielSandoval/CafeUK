@@ -48,6 +48,8 @@
                       %p
                         = drink.name
                       = drink.description
+                      %br
+                      = "₱ #{format('%0.2f', drink.default_price)}"
               
           #portlet_tab2.tab-pane
             .col-lg-15
@@ -64,6 +66,8 @@
                       %p
                         = cake.name
                       = cake.description
+                      %br
+                      = "₱ #{format('%0.2f', cake.default_price)}"
 
           #portlet_tab3.tab-pane
             .col-lg-15
@@ -80,6 +84,8 @@
                       %p
                         = panini.name
                       = panini.description
+                      %br
+                      = "₱ #{format('%0.2f', panini.default_price)}"
                       
           #portlet_tab4.tab-pane
             .col-lg-15
@@ -96,3 +102,5 @@
                       %p
                         = salad.name
                       = salad.description
+                      %br
+                      = "₱ #{format('%0.2f', salad.default_price)}"

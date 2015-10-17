@@ -16,18 +16,6 @@ ActiveRecord::Schema.define(version: 20151012112825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cakes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "cake_type"
-    t.float    "price"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "cart_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
@@ -49,21 +37,6 @@ ActiveRecord::Schema.define(version: 20151012112825) do
     t.datetime "updated_at",                   null: false
   end
 
-  create_table "drinks", force: :cascade do |t|
-    t.string   "name"
-    t.string   "size"
-    t.float    "small_price"
-    t.float    "medium_price"
-    t.float    "large_price"
-    t.string   "drink_type"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "feedbacks", force: :cascade do |t|
     t.datetime "time"
     t.datetime "date"
@@ -72,36 +45,6 @@ ActiveRecord::Schema.define(version: 20151012112825) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.float    "cash_breakdown"
-    t.float    "change"
-    t.float    "total_balance"
-    t.boolean  "active"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "paninis", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "pasta", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.boolean  "available"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -129,24 +72,13 @@ ActiveRecord::Schema.define(version: 20151012112825) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "salads", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.integer  "quantity"
-    t.boolean  "available"
-    t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",  null: false
+    t.string   "encrypted_password",     default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -155,8 +87,8 @@ ActiveRecord::Schema.define(version: 20151012112825) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "last_name"
     t.string   "first_name"
     t.string   "contact_number"
@@ -170,7 +102,7 @@ ActiveRecord::Schema.define(version: 20151012112825) do
     t.boolean  "t_and_c"
     t.boolean  "admin"
     t.boolean  "member"
-    t.integer  "points",                 default: 0
+    t.float    "points",                 default: 0.0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

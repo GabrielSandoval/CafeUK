@@ -38,13 +38,14 @@
                     %td= "#{month_number_to_word(cart.time_ordered.month.to_i)} #{cart.time_ordered.day}, #{cart.time_ordered.year}"
                     %td
                       -cart.cart_items.each do |cart_item|
-                        %br= "#{cart_item.name} x #{cart_item.quantity}"
+                        = "#{cart_item.name} x #{cart_item.quantity}"
+                        %br
                     %td
                       - if cart.served
                         = "Served"
                       - else
                         = "On queue"
-                    %td= "₱ #{cart.total}"
+                    %td= "₱ #{format('%0.2f', @cart.total)}"
         .col-md-12
           .pull-right
             = link_to "Order Now", menus_path, :class=>"btn btn-success btn-md"

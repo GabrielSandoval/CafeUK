@@ -47,7 +47,7 @@
                       = "n/a"
                   %td
                     -if !reservation.time.nil?
-                      = "#{reservation.time.hour} : #{reservation.time.min}"
+                      = "#{reservation.time.hour} : #{format('%02d', reservation.time.min)}"
                     -else
                       = "n/a"
                   %td= reservation.number_of_people

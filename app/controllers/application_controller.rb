@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def destroy_cart_session
+		session[:cart_id] = nil
+	end
+
 	protected
 
 	def configure_permitted_parameters

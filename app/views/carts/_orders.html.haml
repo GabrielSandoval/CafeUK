@@ -14,8 +14,9 @@
           %td= display_cart_owner(cart)
           %td
             -cart.cart_items.each do |cart_item|
-              %br= "#{cart_item.name} x #{cart_item.quantity}"
-          %td= "₱ #{cart.total}"
+              = "#{cart_item.name} x #{cart_item.quantity}"
+              %br
+          %td= "₱ #{format('%0.2f', cart.total)}"
           / %td
           /   %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
           /   = link_to "Edit", edit_cart_path(cart), :class=>"button btn btn-primary btn-xs"

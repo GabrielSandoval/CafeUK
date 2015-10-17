@@ -1,18 +1,15 @@
 %tr
-  %td.col-sm-2.col-md-2
-    %a{:href => "#"}
-      = image_tag "#{item.classification}s.jpg", :class=>"img img-responsive center-block", :size =>"75x75"
-  %td.col-sm-4.col-md-4{:style => "text-align: center"}
+  %td.col-xs-4.col-sm-4.col-md-4{:style => "text-align: center"}
+    = image_tag "#{item.classification}s.jpg", :class=>"img img-responsive", :size=>"75x75"
+  %td.col-xs-4.col-sm-4.col-md-4{:style => "text-align: center"}
     = item.name
-  %td.col-sm-2.col-md-2{:style => "text-align: center"}
+  %td.col-xs-2.col-sm-2.col-md-2{:style => "text-align: center"}
     = item.description
-  %td.col-sm-1.col-md-1{:style => "text-align: center"}
+  %td.col-xs-1.col-sm-1.col-md-1{:style => "text-align: center"}
     = item.quantity
-  %td.col-sm-1.col-md-1.text-center
-    %strong
-      = item.price
-  %td.col-sm-1.col-md-1.text-center
-    %strong
-      = "#{(item.price*item.quantity)}"
-  %td.col-sm-1.col-md-1
-    = remove_product_link(item.id)
+  %td.col-xs-1.col-sm-1.col-md-1.text-center
+    = "₱ #{format('%0.2f', item.price)}"
+  %td.col-xs-1.col-sm-1.col-md-1.text-center
+    = "₱ #{format('%0.2f', (item.price*item.quantity))}"
+  %td.col-xs-1.col-sm-1.col-md-1
+    = remove_product_link(item.id)  

@@ -7,7 +7,7 @@ class CreateCartItems < ActiveRecord::Migration
       t.string :classification
       t.integer :quantity
       t.text :description
-      t.float :price
+      t.float :price, :precision=>2
 
       t.timestamps null: false
     end

@@ -5,10 +5,10 @@ class CreateProducts < ActiveRecord::Migration
       t.string :classification
       t.text :description
       t.boolean :available
-      t.float :default_price
-      t.float :small_price
-      t.float :medium_price
-      t.float :large_price
+      t.float :default_price, :precision=>2
+      t.float :small_price, :precision=>2
+      t.float :medium_price, :precision=>2
+      t.float :large_price, :precision=>2
       t.timestamps null: false
     end
   end

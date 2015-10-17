@@ -1,9 +1,11 @@
 .container
   .box
     .row
-	    .col-lg-12
-	      .pull-right
-	        = link_to "View all reservations", reservations_path
-	    .col-lg-12
-	      %h2.text-center Edit a Reservation
-	      =render "form"
+      .col-lg-12
+        = link_to "View all reservations", reservations_path, :class=>"btn btn-primary btn-md"
+      .col-lg-12
+        %br
+        %hr
+        %h2.text-center Edit a Reservation
+        %hr
+        =render "form"
