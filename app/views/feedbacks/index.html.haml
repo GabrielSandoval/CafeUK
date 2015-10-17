@@ -3,24 +3,26 @@
     - if !current_user.nil? && current_user.admin
       =render :partial=>'admin/feedbacks', :locals=>{:feedbacks => @feedbacks}
     -else
-      .col-lg-12
-        .pull-right
-          = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-success btn-md"
-          = link_to "Back", :back, :class=>"btn btn-primary btn-md"
-        %hr
-          %h2.text-center
-            My Feedbacks
-          %table.table.table-striped.custab
-            %thead
-              %tr
-                %th Date
-                %th Time
-                %th Subject
-                %th Message
-              - @feedbacks.each do |feedback|
+      .col-md-12
+        .col-md-12
+          .pull-right
+            = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-success btn-md"
+              = link_to "Back", :back, :class=>"btn btn-primary btn-md"
+        .col-md-12
+          %hr
+            %h2.text-center
+              My Feedbacks
+            %table.table.table-striped.custab
+              %thead
                 %tr
-                  %td= "#{month_number_to_word(feedback.date.month.to_i)} #{feedback.date.day}, #{feedback.date.year}"
-                  %td= "#{feedback.time.hour}:#{format('%02d', feedback.time.min)}"
-                  %td= feedback.subject
-                  %td= feedback.message
-				
+                  %th Date
+                  %th Time
+                  %th Subject
+                  %th Message
+                - @feedbacks.each do |feedback|
+                  %tr
+                    %td= "#{month_number_to_word(feedback.date.month.to_i)} #{feedback.date.day}, #{feedback.date.year}"
+                    %td= "#{feedback.time.hour}:#{format('%02d', feedback.time.min)}"
+                    %td= feedback.subject
+                    %td= feedback.message
+  				
