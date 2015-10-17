@@ -5,13 +5,13 @@
         .row
           .col-md-3.col-lg-3{:align => "center"}
             = image_tag "user.png", :class => "img img-responsive"
-            
-            = link_to "View my orders", carts_path
-            %br
-            = link_to "View my reservations", reservations_path
-            %br
-            = link_to "View my feedbacks", feedbacks_path
-            %br
+            -if current_user == @user
+              = link_to "View my orders", carts_path
+              %br
+              = link_to "View my reservations", reservations_path
+              %br
+              = link_to "View my feedbacks", feedbacks_path
+              %br
             = "POINTS = #{format('%0.2f', @user.points)}" 
 
           .col-md-9.col-lg-9
@@ -43,8 +43,7 @@
                   %tr
                     %td Bio
                     %td= @user.bio
-            = link_to "Edit Profile", edit_user_registration_path, :class=>"btn btn-success"
+            -if current_user.id == @user.id        
+              = link_to "Edit Profile", edit_user_registration_path, :class=>"btn btn-success"
             = link_to "Back", :back, :class=>"btn btn-primary"
       .panel-footer
-        /
-          <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
