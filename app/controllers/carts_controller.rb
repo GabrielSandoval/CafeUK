@@ -6,7 +6,7 @@ class CartsController < ApplicationController
 		if can_administer?
 			@carts = Cart.find_orders
 		else
-			@carts = Cart.joins(:user).where(user: current_user)
+			@carts = Cart.joins(:user).where(user: current_user).order('time_ordered DESC')
 		end
 	
 	end

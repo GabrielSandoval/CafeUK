@@ -32,6 +32,7 @@
                 %th Items
                 %th Status
                 %th Total Price
+                %th
               - @carts.each do |cart|
                 -if cart.finalized
                   %tr
@@ -46,6 +47,9 @@
                       - else
                         = "On queue"
                     %td= "₱ #{format('%0.2f', cart.total)}"
+                    %td
+                      - if cart.served
+                        = link_to "Delete", cart_path(cart), :method=>:delete, :data=>{:confirm=>"Are you sure?"}, :class=>"btn btn-danger btn-md"
         .col-md-12
           .pull-right
             = link_to "Order Now", menus_path, :class=>"btn btn-success btn-md"
