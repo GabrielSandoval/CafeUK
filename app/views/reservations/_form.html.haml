@@ -1,5 +1,5 @@
 = form_for @reservation do |f|
-  %hr.colograph
+  .colograph
     .row
       .col-xs-12.col-sm-12.col-md-12
         .form-group
@@ -17,7 +17,7 @@
         .form-group
           = f.time_select :time, :class => 'form-control input-lg', :tabindex=>"4"
 
-    %hr.colorgraph
+    .colorgraph
       .row
         .col-md-6
           = f.submit :class=> "btn btn-success btn-block btn-lg"

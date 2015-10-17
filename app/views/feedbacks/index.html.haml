@@ -3,16 +3,12 @@
     - if !current_user.nil? && current_user.admin
       =render :partial=>'admin/feedbacks', :locals=>{:feedbacks => @feedbacks}
     -else
-      .col-md-12
+      .row
         .col-md-12
-          .pull-right
-            = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-success btn-md"
-            = link_to "Back", :back, :class=>"btn btn-primary btn-md"
-        .col-md-12
-          %hr
           %hr
             %h2.text-center
               My Feedbacks
+          %hr
             %table.table.table-striped.custab
               %thead
                 %tr
@@ -26,4 +22,7 @@
                     %td= "#{feedback.time.hour}:#{format('%02d', feedback.time.min)}"
                     %td= feedback.subject
                     %td= feedback.message
-  				
+        
+        .col-md-12.pull-right
+          = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-success btn-md"
+          = link_to "Back", :back, :class=>"btn btn-primary btn-md"
