@@ -45,7 +45,7 @@
                         = "Served"
                       - else
                         = "On queue"
-                    %td= "₱ #{format('%0.2f', @cart.total)}"
+                    %td= "₱ #{format('%0.2f', cart.total)}"
         .col-md-12
           .pull-right
             = link_to "Order Now", menus_path, :class=>"btn btn-success btn-md"
