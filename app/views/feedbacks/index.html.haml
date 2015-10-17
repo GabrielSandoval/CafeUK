@@ -23,6 +23,7 @@
                     %td= feedback.subject
                     %td= feedback.message
         
-        .col-md-12.pull-right
-          = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-success btn-md"
-          = link_to "Back", :back, :class=>"btn btn-primary btn-md"
+        .col-md-12
+          .pull-right
+            = link_to "Create Feedback", new_feedback_path, :class=>"btn btn-success btn-md"
+            = link_to "Back", :back, :class=>"btn btn-primary btn-md"

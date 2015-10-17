@@ -45,7 +45,8 @@
                       - else
                         = "On queue"
                     %td= "₱ #{cart.total}"
-        .col-md-12.pull-right
-          = link_to "Order Now", menus_path, :class=>"btn btn-success btn-md"
-          = link_to "Back", :back, :class=>"btn btn-primary btn-md"
+        .col-md-12
+          .pull-right
+            = link_to "Order Now", menus_path, :class=>"btn btn-success btn-md"
+            = link_to "Back", :back, :class=>"btn btn-primary btn-md"
                 

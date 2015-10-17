@@ -22,7 +22,8 @@
 									%td= "#{reservation.time.hour}:#{format('%02d', reservation.time.min)}"
 									%td= reservation.table_number
 									%td= reservation.number_of_people
-				.col-md-12.pull-right
-					= link_to "Create Reservations", new_reservation_path, :class=>"btn btn-success btn-md"
-					= link_to "Back", :back, :class=>"btn btn-primary btn-md"
-						
+				.col-md-12
+					.pull-right
+						= link_to "Create Reservations", new_reservation_path, :class=>"btn btn-success btn-md"
+						= link_to "Back", :back, :class=>"btn btn-primary btn-md"
+							
