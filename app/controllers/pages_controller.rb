@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     def show
 
         if params[:page] == "home"
-            @announcements = Announcement.all
+            @announcements = Announcement.all.order("date_posted DESC")
         end
             
         render template: "pages/#{params[:page]}"

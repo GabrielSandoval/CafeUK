@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
 
 	def index
 		if current_user.admin?
-			@feedbacks = Feedback.all
+			@feedbacks = Feedback.all.order("date DESC")
 		else
 			@feedbacks = Feedback.joins(:user).where(user: current_user)
 		end
