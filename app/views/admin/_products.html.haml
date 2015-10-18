@@ -17,6 +17,8 @@
     / BEGIN Portlet PORTLET
     .portlet
       .portlet-title
+        .col-md-12.col-xs-12
+          %h4 List of Products
         .caption.caption-red
         %ul.nav.nav-tabs
           %li.active
@@ -36,7 +38,7 @@
         .tab-content
           #portlet_tab1.tab-pane.active
             .col-lg-15
-              %h2.text-left
+              %h4.text-left
                 Drinks
             .row
               - @drinks.each do |drink| 
@@ -54,7 +56,7 @@
               
           #portlet_tab2.tab-pane
             .col-lg-15
-              %h2.text-left
+              %h4.text-left
                 Cakes
             .row
               - @cakes.each do |cake| 
@@ -72,7 +74,7 @@
 
           #portlet_tab3.tab-pane
             .col-lg-15
-              %h2.text-left
+              %h4.text-left
                 Paninis
             .row
               - @paninis.each do |panini|
@@ -90,7 +92,7 @@
                       
           #portlet_tab4.tab-pane
             .col-lg-15
-              %h2.text-left
+              %h4.text-left
                 Salads
             .row
               - @salads.each do |salad|
