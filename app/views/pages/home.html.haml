@@ -44,12 +44,17 @@
         .box
           .col-lg-12
             %hr
-              %h3.text-center
-                %strong= announcement.subject
-              %hr
+              %h2.text-center
+                Announcement
+              %h4.text-center
+                = announcement.subject
+            %hr
+              
           .col-md-12
             %p{:style => "text-indent: 8%"}
               = announcement.content
+          .pull-right
+            = show_date_and_time(announcement.date_posted)
           .clearfix
   / jQuery
   %script{:src => "js/jquery.js"}
