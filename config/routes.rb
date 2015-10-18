@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :products
   resources :menus
   resources :carts
+  resources :announcements
 
   resources :feedbacks
   resources :reservations
