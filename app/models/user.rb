@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   		 :rememberable, :trackable, :validatable
 
-  has_many :orders, :dependent => :destroy
   has_many :reservations, :dependent => :destroy
   has_many :carts, :dependent => :destroy
 

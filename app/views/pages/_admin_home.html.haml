@@ -11,28 +11,41 @@
         = link_to "Reservations", reservations_path
       %li
         = link_to "Feedback", feedbacks_path
-      %li
-        = link_to "Users", users_path
                
-  .col-md-10.content
-    .panel.panel-default
-      .panel-heading
-        Dashboard
-      .panel-body
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        %br
-          %br
-            Quisque luctus nisl urna, et tincidunt sapien hendrerit id. Nulla mattis dui in blandit suscipit. Morbi pharetra arcu rhoncus tortor auctor efficitur. Mauris a dapibus augue. Nunc facilisis rhoncus gravida. Sed commodo, sem id pretium bibendum, dolor massa tempus odio, quis iaculis dui ligula et eros. Sed elementum semper sapien quis pulvinar. Duis condimentum sollicitudin viverra. Sed eget pulvinar libero, a rutrum massa. Nunc vitae volutpat neque. Nullam semper purus a pulvinar consequat. Nulla dictum urna in massa viverra, vel placerat ex feugiat. Curabitur tempor semper scelerisque. Mauris ipsum nunc, tincidunt vel urna scelerisque, viverra malesuada massa. Fusce pulvinar porta nibh, id semper tellus porttitor et.
-            %br
-              %br
-                Phasellus tincidunt velit id nisi tempor scelerisque. Suspendisse sodales quam leo, in luctus purus suscipit sit amet. Suspendisse potenti. Mauris facilisis ex ac tincidunt elementum. Nullam vel lobortis diam. Duis et felis non lectus vulputate aliquet. Nulla eu blandit lorem. Donec at quam in dui aliquet feugiat.
-                %br
-                  %br
-                    Quisque condimentum velit in lectus pharetra, gravida luctus dolor pretium. Nam tempus velit diam, sed dignissim mauris semper id. Cras vitae magna id risus rhoncus maximus. Curabitur faucibus, nulla et dapibus rutrum, quam arcu blandit ante, at sagittis odio erat et lacus. Nam eget mi quis mi placerat lobortis non at dui. Aliquam erat volutpat. Cras sed neque enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat vulputate pellentesque. In facilisis dui vel erat cursus lacinia. Vivamus ornare sem ut nulla porttitor efficitur.
-                    %br
-                      %br
+  .col-md-10
+    .col-md-12
+      %h4 List of Announcements
+      .pull-right
+        =link_to "Create an Announcement", new_announcement_path, :class=> "btn btn-md btn-primary btn-block"
+    .col-md-12
+      .table-responsive
+        %table#mytable.table.table-bordred.table-striped
+          %thead
+            %th Announcement ID
+            %th Date Posted
+            %th Subject
+            %th Content
+            %th Edit
+            %th Delete
+          %tbody
+            -if announcements.empty?
+              %tr
+                %td.text-center{:colspan=>"8"}= "There are no announcements."
+            -else
+
+              - announcements.each do |announcement|
+                %tr
+                  %td= announcement.id
+                  %td
+                    -if !announcement.date_posted.nil?
+                      = "#{month_number_to_word(announcement.date_posted.month.to_i)} #{announcement.date_posted.day}, #{announcement.date_posted.year}"
+                    -else
+                      = "n/a"
+                  %td= announcement.subject
+                  %td= announcement.content
+                  %td
+                    %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
+                      = link_to "Edit", edit_announcement_path(announcement), :class=>"btn btn-primary btn-xs"
+                  %td
+                    %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
+                      = link_to "Delete", announcement_path(announcement), :method=> :delete, :data=>{:confirm=>"Are you sure?"},  :class=>"btn btn-danger btn-xs"

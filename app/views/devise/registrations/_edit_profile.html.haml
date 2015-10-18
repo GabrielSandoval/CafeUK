@@ -36,12 +36,12 @@
   .form-group
     = f.label :bio, 'Bio:', :class => 'control-label col-md-2'
     .col-md-8
-      = f.text_area :bio
+      = f.text_area :bio, :style=>"width:100%"
   .form-group
     = f.label :current_password, :class => 'control-label col-md-2'
     .col-md-8
       = f.password_field :current_password, :class => 'form-control'
   .form-group
     .form-actions.col-md-offset-2.col-md-8
-      = f.submit "Save",:class => 'btn btn-success'
+      = f.submit "Save", :class => 'btn btn-success'
       = link_to "Cancel", :back, :class => 'btn btn-danger'

@@ -2,7 +2,7 @@
   .row
     .box
       -if admin?
-        =render :partial => 'pages/admin_home'
+        =render :partial => 'pages/admin_home', :locals=>{:announcements => @announcements}
       -else
         .col-lg-12.text-center
           .div{:class=>'carousel slide', :id => 'carousel-example-generic'}
@@ -36,30 +36,27 @@
           %hr
           %h1.brand-name Cafe UK
           %hr.tagline-divider
-            /
-              <h2>
-              <small>By
-              <strong>Start Bootstrap</strong>
-              </small>
-              </h2>
-    / .row
-    /   .box
-    /     .col-lg-12
-    /       %hr
-    /         %h2.intro-text.text-center
-    /           %strong
-    /             = link_to "Create an account", page_path(:home)
-    /         %hr
-    /           %img.img-responsive.img-border.img-left{:alt => "", :src => "img/intro-pic.jpg"}
-    /             %hr.visible-xs
-    /               %p.text-center Create an Account to access our Online Ordering and Delivery Features!
 
-    / jQuery
-    %script{:src => "js/jquery.js"}
-    / Bootstrap Core JavaScript
-    %script{:src => "js/bootstrap.min.js"}
-    / Script to Activate the Carousel
-    :javascript
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
+- if !admin?
+  -@announcements.each do |announcement|
+    .container
+      .row
+        .box
+          .col-lg-12
+            %hr
+              %h3.text-center
+                %strong= announcement.subject
+              %hr
+          .col-md-12
+            %p{:style => "text-indent: 8%"}
+              = announcement.content
+          .clearfix
+  / jQuery
+  %script{:src => "js/jquery.js"}
+  / Bootstrap Core JavaScript
+  %script{:src => "js/bootstrap.min.js"}
+  / Script to Activate the Carousel
+  :javascript
+  $('.carousel').carousel({
+      interval: 5000 //changes the speed
+  })
