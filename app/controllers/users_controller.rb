@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 		if can_administer?
 			@users = User.all.order(:id)
 		else
-			redirect_to :root, :notice=>"Unauthorized page"
+			redirect_to :root, :notice=>"Unauthorized access to page"
 		end
 	end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		if can_administer? || current_user.id == user.id
 			@user = user
 		else
-			redirect_to :root, :notice=>"Unauthorized page"
+			redirect_to :root, :notice=>"Unauthorized access to page"
 		end
 	end
 

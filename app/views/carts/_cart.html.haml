@@ -7,41 +7,42 @@
             = flash[:cart_notice]
         .div.pull-right
           = clear_cart_link
-        %table.table.table-hover
-          %thead
-            %tr
-              %th.col-xs-2.col-sm-2.col-md-2.text-center Product
-              %th.col-xs-2.col-sm-4.col-md-4.text-center Name
-              %th.col-xs-2.col-sm-2.col-md-2.text-center Description
-              %th.col-xs-2.col-sm-1.col-md-1.text-center Qty
-              %th.col-xs-2.col-sm-1.col-md-1.text-center Price
-              %th.col-xs-2.col-sm-1.col-md-1.text-center Total
-              %th.col-xs-2.col-sm-1.col-md-1
-          %tbody
-            - if !@cart.cart_items.blank?
-              - @cart.cart_items.each do |item|
-                .div{:id=>"cart_item_#{item.product_id}"}
-                  = render :partial => "carts/item", :locals =>{:item => item}
-            %tr
-              %td.col-xs-2.col-sm-2.col-md-2.text-center 
-              %td.col-xs-2.col-sm-4.col-md-4.text-center
-              %td.col-xs-2.col-sm-2.col-md-2.text-center
-              %td.col-xs-2.col-sm-1.col-md-1.text-center  
-              %td.col-xs-2.col-sm-1.col-md-1.text-center
-                %h4 Total
-              %td.col-xs-2.col-sm-1.col-md-1.text-right
-                %h4
-                  %strong
-                    = "₱#{format('%0.2f', @cart.total)}"
-              %th.col-xs-2.col-sm-1.col-md-1
-              
-            %tr
-              %td.col-xs-2.col-sm-2.col-md-2.text-center 
-              %td.col-xs-2.col-sm-4.col-md-4.text-center
-              %td.col-xs-2.col-sm-2.col-md-2.text-center
-              %td.col-xs-2.col-sm-1.col-md-1.text-center  
-              %td.col-xs-2.col-sm-1.col-md-1.text-center
-              %td.col-xs-2.col-sm-1.col-md-1.text-right
-                = link_to "Submit", cart_path(@cart, :cart => {:finalized => 1}),  :method => :put, :class=>"btn btn-success"
-              %td.col-xs-2.col-sm-1.col-md-1.text-right
-                = link_to "Back", :back, :class=>"btn btn-primary"
+        .table-responsive
+          %table.table.table-hover
+            %thead
+              %tr
+                %th.col-xs-2.col-sm-2.col-md-2.text-center Product
+                %th.col-xs-2.col-sm-4.col-md-4.text-center Name
+                %th.col-xs-2.col-sm-2.col-md-2.text-center Description
+                %th.col-xs-2.col-sm-1.col-md-1.text-center Qty
+                %th.col-xs-2.col-sm-1.col-md-1.text-center Price
+                %th.col-xs-2.col-sm-1.col-md-1.text-center Total
+                %th.col-xs-2.col-sm-1.col-md-1
+            %tbody
+              - if !@cart.cart_items.blank?
+                - @cart.cart_items.each do |item|
+                  .div{:id=>"cart_item_#{item.product_id}"}
+                    = render :partial => "carts/item", :locals =>{:item => item}
+              %tr
+                %td.col-xs-2.col-sm-2.col-md-2.text-center 
+                %td.col-xs-2.col-sm-4.col-md-4.text-center
+                %td.col-xs-2.col-sm-2.col-md-2.text-center
+                %td.col-xs-2.col-sm-1.col-md-1.text-center  
+                %td.col-xs-2.col-sm-1.col-md-1.text-center
+                  %h4 Total
+                %td.col-xs-2.col-sm-1.col-md-1.text-right
+                  %h4
+                    %strong
+                      = "₱#{format('%0.2f', @cart.total)}"
+                %th.col-xs-2.col-sm-1.col-md-1
+                
+              %tr
+                %td.col-xs-2.col-sm-2.col-md-2.text-center 
+                %td.col-xs-2.col-sm-4.col-md-4.text-center
+                %td.col-xs-2.col-sm-2.col-md-2.text-center
+                %td.col-xs-2.col-sm-1.col-md-1.text-center  
+                %td.col-xs-2.col-sm-1.col-md-1.text-center
+                %td.col-xs-2.col-sm-1.col-md-1.text-right
+                  = link_to "Submit", cart_path(@cart, :cart => {:finalized => 1}),  :method => :put, :class=>"btn btn-success"
+                %td.col-xs-2.col-sm-1.col-md-1.text-right
+                  = link_to "Back", :back, :class=>"btn btn-primary"

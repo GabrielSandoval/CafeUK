@@ -9,7 +9,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+
+    if can_administer?
+      @product = Product.find(params[:id])
+    else
+      redirect_to :root, :notice=>"Unauthorized access to page"
+    end
+
   end
 
   def edit
