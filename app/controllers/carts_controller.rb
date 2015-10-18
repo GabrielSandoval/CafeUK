@@ -20,11 +20,11 @@ class CartsController < ApplicationController
 
 		if request.xhr?
 			@item = @cart.add(@product)
-			flash[:cart_notice] = "Added 1 #{@product.name}"
+			flash.now[:cart_notice] = "Added 1 #{@product.name}"
 			render :action => "refresh_shopping_cart"
 		elsif request.post?
 			@item = @cart.add(@product)
-			flash[:cart_notice] = "Added 1 #{@product.name}"
+			flash.now[:cart_notice] = "Added 1 #{@product.name}"
 			redirect_to session[:return_to] || {:controller => "menus"}
 		else
 			render
