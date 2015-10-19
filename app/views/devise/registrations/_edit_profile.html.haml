@@ -21,16 +21,16 @@
     = f.label :gender, 'Gender:', :class => 'control-label col-md-2'
     .col-md-8
       = f.radio_button :gender, 'Male'
-      = f.label :gender, "Male"
+      = f.label :gender, 'Male'
       = f.radio_button :gender, 'Female'
-      = f.label :gender, "Female"
+      = f.label :gender, 'Female'
       
   .form-group
     = f.label :location, 'Location:', :class => 'control-label col-md-2'
     .col-md-8
       = f.text_field :location, :class => 'form-control'
   .form-group
-    = f.label :birthday, :class => 'control-label col-md-2'
+    = f.label :birthday, 'Birthday:', :class => 'control-label col-md-2'
     .col-md-8
       = f.date_select :birthday, :start_year=>1950, :end_year=>2015
   .form-group
@@ -38,7 +38,7 @@
     .col-md-8
       = f.text_area :bio, :style=>"width:100%"
   .form-group
-    = f.label :current_password, :class => 'control-label col-md-2'
+    = f.label :current_password, 'Current password:', :class => 'control-label col-md-2'
     .col-md-8
       = f.password_field :current_password, :class => 'form-control'
   .form-group
