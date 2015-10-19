@@ -2,12 +2,12 @@
   .box
     .row
       .col-md-12
-        - if admin?
-          = link_to "View all reservations", reservations_path, :class=>"btn btn-primary btn-sm"
-        - else
-          = link_to "View my reservations", reservations_path, :class=>"btn btn-primary btn-sm"
+        .text-right
+          - if admin?
+            = link_to "View all reservations", reservations_path, :class=>"btn btn-primary btn-sm"
+          - else
+            = link_to "View my reservations", reservations_path, :class=>"btn btn-primary btn-sm"
       .col-md-12
-        %br
         %hr
         %h2.text-center Table Reservation
         %hr
