@@ -18,4 +18,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		if can_administer? || current_user.id == user.id
+			User.destroy(params[:id])
+			redirect_to :root, :notice=>"The account of the user has been deleted."
+		else
+			redirect_to :root, :notice=>"Unauthorized access to page"
+		end
+
+	end
+
 end
