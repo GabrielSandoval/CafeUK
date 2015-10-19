@@ -81,7 +81,7 @@ class CartsController < ApplicationController
       
       else
 		if cart.finalized
-		cart.update_attributes(:time_ordered => DateTime.now.in_time_zone("Asia/Manila"))
+		cart.update_attributes(:time_ordered => DateTime.now)
 		end
 		destroy_cart_session
 		destroy_unsettled_carts

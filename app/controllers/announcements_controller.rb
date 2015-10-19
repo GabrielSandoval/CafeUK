@@ -20,7 +20,7 @@ class AnnouncementsController < ApplicationController
   def create
     if current_user.admin?
       announcement = Announcement.new(announcement_params)
-      announcement.date_posted = DateTime.now.in_time_zone("Asia/Manila")
+      announcement.date_posted = DateTime.now
       announcement.save
       redirect_to :root
     else
