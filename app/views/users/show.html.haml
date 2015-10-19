@@ -22,26 +22,26 @@
                   %td= "#{@user.first_name} #{@user.last_name}"
                 %tr
                   %tr
-                    %td Gender
+                    %td Gender:
                     %td= @user.gender
                   %tr
-                    %td Location
+                    %td Location:
                     %td= @user.location
                   %tr
-                    %td Birthday
+                    %td Birthday:
                     %td
                       -if !@user.birthday.nil?
                         = "#{month_number_to_word(@user.birthday.month.to_i)} #{@user.birthday.day}, #{@user.birthday.year}"
                       -else
                         = "n/a"
                   %tr
-                    %td Email
+                    %td Email:
                     %td= @user.email
                   %tr
-                    %td Cellphone Number
+                    %td Cellphone Number:
                     %td= @user.contact_number
                   %tr
-                    %td Bio
+                    %td Bio:
                     %td= @user.bio
             -if current_user.id == @user.id        
               = link_to "Edit Profile", edit_user_registration_path, :class=>"btn btn-success"
