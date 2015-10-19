@@ -43,8 +43,8 @@
           %thead
             %th Reservation ID
             %th Customer Name
+            %th Request Date
             %th Date to be Reserved
-            %th Time to be Reserved
             %th Number of Customers
             %th Table Number
             %th Edit
@@ -60,13 +60,23 @@
                   %td= reservation.id
                   %td= "#{reservation.user.first_name} #{reservation.user.last_name}"
                   %td
-                    -if !reservation.date.nil?
-                      = "#{month_number_to_word(reservation.date.month.to_i)} #{reservation.date.day}, #{reservation.date.year}"
+                    -if !reservation.date_reserved.nil?
+                      = "#{reservation.date_reserved.month.to_i}/#{reservation.date_reserved.day}/#{reservation.date_reserved.year}"
+                    -else
+                      = "n/a"
+                    %br
+                    -if !reservation.time.nil?
+                      = "#{reservation.date_reserved.hour}:#{format('%02d', reservation.date_reserved.min)}"
                     -else
                       = "n/a"
                   %td
+                    -if !reservation.date.nil?
+                      = "#{reservation.date.month.to_i}/#{reservation.date.day}/#{reservation.date.year}"
+                    -else
+                      = "n/a"
+                    %br
                     -if !reservation.time.nil?
-                      = "#{reservation.time.hour} : #{format('%02d', reservation.time.min)}"
+                      = "#{reservation.time.hour}:#{format('%02d', reservation.time.min)}"
                     -else
                       = "n/a"
                   %td= reservation.number_of_people

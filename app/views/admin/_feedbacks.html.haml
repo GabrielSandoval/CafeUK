@@ -39,6 +39,7 @@
         %table#mytable.table.table-bordred.table-striped
           %thead
             %th Date
+            %th Time
             %th Customer Name
             %th Customer Email
             %th Subject
@@ -48,6 +49,7 @@
             - @feedbacks.each do |feedback|
               %tr
                 %td= "#{feedback.date.month}-#{feedback.date.day}-#{feedback.date.year}"
+                %td= "#{feedback.date.hour}:#{format('%2d', feedback.date.min)}"
                 %td= "#{feedback.user.first_name} #{feedback.user.last_name}"
                 %td= feedback.user.email
                 %td= feedback.subject

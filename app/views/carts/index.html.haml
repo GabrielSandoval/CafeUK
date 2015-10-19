@@ -13,6 +13,7 @@
             %thead
               %tr
                 %th Date
+                %th Time
                 %th Items
                 %th Status
                 %th Total Price
@@ -21,6 +22,7 @@
                 -if cart.finalized
                   %tr
                     %td= "#{month_number_to_word(cart.time_ordered.month.to_i)} #{cart.time_ordered.day}, #{cart.time_ordered.year}"
+                    %td= "#{cart.time_ordered.hour}:#{format('%2d', cart.time_ordered.min)}"
                     %td
                       -cart.cart_items.each do |cart_item|
                         = "#{cart_item.name} x #{cart_item.quantity}"

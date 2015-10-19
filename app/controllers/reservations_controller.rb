@@ -4,9 +4,9 @@ class ReservationsController < ApplicationController
   def index
     
     if current_user.admin?
-      @reservations = Reservation.all
+      @reservations = Reservation.all.order('date_reserved')
     else
-      @reservations = Reservation.joins(:user).where(user: current_user)
+      @reservations = Reservation.joins(:user).where(user: current_user).order('date_reserved')
     end
 
   end

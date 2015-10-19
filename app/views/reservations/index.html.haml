@@ -12,14 +12,32 @@
 					%table.table.table-striped.custab
 						%thead
 							%tr
-								%th Date
-								%th Time
+								%th Request Date
+								%th Date to be Reserved
 								%th Table Number
 								%th Number of Seats
 							- @reservations.each do |reservation|
 								%tr
-									%td= "#{month_number_to_word(reservation.date.month.to_i)} #{reservation.date.day}, #{reservation.date.year}"
-									%td= "#{reservation.time.hour}:#{format('%02d', reservation.time.min)}"
+									%td
+										-if !reservation.date_reserved.nil?
+											= "#{reservation.date_reserved.month.to_i}/#{reservation.date_reserved.day}/#{reservation.date_reserved.year}"
+										-else
+											= "n/a"
+										%br
+										-if !reservation.time.nil?
+											= "#{reservation.date_reserved.hour}:#{format('%02d', reservation.date_reserved.min)}"
+										-else
+											= "n/a"
+									%td
+										-if !reservation.date.nil?
+											= "#{reservation.date.month.to_i}/#{reservation.date.day}/#{reservation.date.year}"
+										-else
+											= "n/a"
+										%br
+										-if !reservation.time.nil?
+											= "#{reservation.time.hour}:#{format('%02d', reservation.time.min)}"
+										-else
+											= "n/a"
 									%td= reservation.table_number
 									%td= reservation.number_of_people
 				.col-md-12
