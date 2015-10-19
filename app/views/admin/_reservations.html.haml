@@ -1,24 +1,41 @@
 .container-fluid.main-container
-  .col-md-2.sidebar
+  .col-md-3.sidebar
     %ul.nav.nav-pills.nav-stacked
       %li
-        = link_to "Home", page_path(:home)
+        = link_to page_path(:home) do
+          Home
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = announcements_count
       %li
-        = link_to "Products", products_path
+        = link_to products_path do
+          Products
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = products_count
       %li
-        = link_to "Orders", carts_path
+        = link_to carts_path do
+          Orders
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = orders_count
       %li.active
-        = link_to "Reservations", reservations_path
+        = link_to reservations_path do
+          Reservation
+          %span{:class=>"badge pull-right", :style=>"background-color:#FFFFFF"}
+            = reservations_count
       %li
-        = link_to "Feedback", feedbacks_path
+        = link_to feedbacks_path do
+          Feedbacks
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = feedbacks_count
       %li
-        = link_to "Users", users_path  
-  / TABLE
-  .col-md-10
+        = link_to users_path do
+          Users
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = users_count
+  .col-md-9
     .col-md-12
       %h4 List of Reservations
-      .pull-right
-        =link_to "Create Reservation", new_reservation_path, :class=> "btn btn-md btn-primary btn-block"
+      .text-right
+        =link_to "Create Reservation", new_reservation_path, :class=> "btn btn-md btn-primary"
     .col-md-12
       .table-responsive
         %table#mytable.table.table-bordred.table-striped

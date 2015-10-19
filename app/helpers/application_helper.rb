@@ -25,4 +25,28 @@ module ApplicationHelper
 		a[month]
 	end
 
+	def announcements_count
+		Announcement.all.count
+	end
+
+	def products_count
+		Product.all.count
+	end
+
+	def orders_count
+		Cart.find_orders.count
+	end
+
+	def reservations_count
+		Reservation.all.count
+	end
+
+	def feedbacks_count
+		Feedback.all.count
+	end
+
+	def users_count
+		User.all.count
+	end
+
 end

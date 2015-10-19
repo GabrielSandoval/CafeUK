@@ -1,35 +1,33 @@
-.container
+.container  
   .box
     .container-fluid
       .content-wrapper
-        .item-container
-          .container
-            .col-md-15
-              .product.col-md-3.service-image-left
-                .menu-thumbnail
-                  %center
-                    =image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
-                    
-            .col-md-7
-              %h4 Product Information
+        .col-md-4
+          .menu-thumbnail
+            %center
+              =image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
+                
+        .col-md-8
+          %h4.text-center Product Information
+          %hr
+            .col-md-12.col-lg-12.col-xs-12
+              .col-md-6.col-lg-6.col-xs-6.text-right
+                Name:
+              .col-md-6.col-lg-6.col-xs-6
+                ="#{@product.name}"
+            .col-md-12.col-lg-12.col-xs-12
+              .col-md-6.col-lg-6.col-xs-6.text-right
+                Description:
+              .col-md-6.col-lg-6.col-xs-6
+                ="#{@product.description}"
+            .col-md-12.col-lg-12.col-xs-12
+              .col-md-6.col-lg-6.col-xs-6.text-right
+                Price:
+              .col-md-6.col-lg-6.col-xs-6
+                ="#{format('%0.2f',@product.default_price)}"
+              %br
               %hr
-                %table
-                  %tr.product-title
-                    %td Name: 
-                    %td
-                      ="#{@product.name}"
-                  %tr.product-desc
-                    %td Decription: 
-                    %td
-                      ="#{@product.description}"
-                  %tr.product-price
-                    %td Price:
-                    %td
-                      ="#{@product.default_price}"
-                %hr
-                  .btn-group
-                    =link_to "Edit", edit_product_path(@product), :class=>"input btn btn-success"
-                  .btn-group
-                    =link_to "Delete", product_path(@product), :method=>:delete, :data=>{:confirm=>"Are you sure?"}, :class=>"input btn btn-danger"
-                  .btn-group
-                    =link_to "Back", products_path, :class=>" btn btn-primary"
+            .form-actions.col-md-offset-4.col-md-8.col-xs-12
+              =link_to "Edit", edit_product_path(@product), :class=>"input btn btn-success"
+              =link_to "Delete", product_path(@product), :method=>:delete, :data=>{:confirm=>"Are you sure?"}, :class=>"input btn btn-danger"
+              =link_to "Back", products_path, :class=>" btn btn-primary"

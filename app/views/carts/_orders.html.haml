@@ -1,26 +1,62 @@
-.table-responsive
-  %table#mytable.table.table-bordred.table-striped
-    %thead
-      %th Order ID
-      %th Customer Name
-      %th Order
-      %th Total Price
-      %th Mark as Served
-      %th Delete
-    %tbody
-      - carts.each do |cart|
-        %tr
-          %td= cart.id
-          %td= display_cart_owner(cart)
-          %td
-            -cart.cart_items.each do |cart_item|
-              = "#{cart_item.name} x #{cart_item.quantity}"
-              %br
-          %td= "₱ #{format('%0.2f', cart.total)}"
-          / %td
-          /   %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
-          /   = link_to "Edit", edit_cart_path(cart), :class=>"button btn btn-primary btn-xs"
-          %td
-            = link_to "Mark as Served", cart_path(cart, :cart => {:served => 1}),  :method => :put, :class=>"btn btn-success btn-xs"
-          %td
-            = delete_order_link(cart)
+.container-fluid.main-container
+  .col-md-3.sidebar
+    %ul.nav.nav-pills.nav-stacked
+      %li
+        = link_to page_path(:home) do
+          Home
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = announcements_count
+      %li
+        = link_to products_path do
+          Products
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = products_count
+      %li.active
+        = link_to carts_path do
+          Orders
+          %span{:class=>"badge pull-right", :style=>"background-color:#FFFFFF"}
+            = orders_count
+      %li
+        = link_to reservations_path do
+          Reservation
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = reservations_count
+      %li
+        = link_to feedbacks_path do
+          Feedbacks
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = feedbacks_count
+      %li
+        = link_to users_path do
+          Users
+          %span{:class=>"badge pull-right", :style=>"background-color:#269abc"}
+            = users_count
+  .col-md-9
+    %h4 List of Orders
+        
+    .table-responsive
+      %table#mytable.table.table-bordred.table-striped
+        %thead
+          %th Order ID
+          %th Customer Name
+          %th Order
+          %th Total Price
+          %th Mark as Served
+          %th Delete
+        %tbody
+          - carts.each do |cart|
+            %tr
+              %td= cart.id
+              %td= display_cart_owner(cart)
+              %td
+                -cart.cart_items.each do |cart_item|
+                  = "#{cart_item.name} x #{cart_item.quantity}"
+                  %br
+              %td= "₱ #{format('%0.2f', cart.total)}"
+              / %td
+              /   %p{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
+              /   = link_to "Edit", edit_cart_path(cart), :class=>"button btn btn-primary btn-xs"
+              %td
+                = link_to "Mark as Served", cart_path(cart, :cart => {:served => 1}),  :method => :put, :class=>"btn btn-success btn-xs"
+              %td
+                = delete_order_link(cart)
