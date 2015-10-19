@@ -25,8 +25,9 @@ require 'csv'
 	def create_admin_accounts
 		puts "Adding admin."
 
-		admin = User.new(:email => 'admin@example.com', :first_name => 'admin_first', :last_name => 'admin_last', :password => 'adminpassword', :bio => "I am the ADMIN", :admin => true)
-
+		admin = User.new(:email => 'admin1@example.com', :first_name => 'admin1_first', :last_name => 'admin1_last', :password => 'admin1password', :bio => "I am the ADMIN1", :admin => true)
+		admin.save
+		admin = User.new(:email => 'admin2@example.com', :first_name => 'admin2_first', :last_name => 'admin2_last', :password => 'admin2password', :bio => "I am the ADMIN2", :admin => true)
 		admin.save
 
 		puts "Admin created."
