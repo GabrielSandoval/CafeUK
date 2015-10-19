@@ -16,8 +16,8 @@ class FeedbacksController < ApplicationController
 
 	def create
 		feedback = Feedback.new(feedback_params)
-		feedback.date = DateTime.now
-		feedback.time = DateTime.now
+		feedback.date = DateTime.now.in_time_zone("Asia/Manila")
+		feedback.time = DateTime.now.in_time_zone("Asia/Manila")
 		feedback.user = User.find(current_user)
 		feedback.save
 		redirect_to :root, :notice => 'Thank you so much for your feedback!'
