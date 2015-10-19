@@ -49,7 +49,7 @@
             %tr
               %td= cart.id
               %td= display_cart_owner(cart)
-              %td= "#{cart.time_ordered.hour}:#{format('%2d', cart.time_ordered.min)}"
+              %td= "#{cart.time_ordered.hour}:#{format('%02d', cart.time_ordered.min)}"
               %td
                 -cart.cart_items.each do |cart_item|
                   = "#{cart_item.name} x #{cart_item.quantity}"
