@@ -38,6 +38,8 @@
       .portlet-title
         .col-md-12.col-xs-12
           %h4 List of Products
+          .text-right
+            =link_to "Create a Product", new_product_path, :class=> "btn btn-md btn-primary"
         .caption.caption-red
         %ul.nav.nav-tabs
           %li.active
@@ -65,7 +67,7 @@
                   .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = link_to (image_tag "drinks.jpg", :class=>"img img-responsive"), product_path(drink)
+                      = link_to menu_thumbnail_photo(drink.classification), product_path(drink)
                     .content.text-center
                       %p
                         = drink.name
@@ -83,7 +85,7 @@
                   .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = link_to (image_tag "cakes.jpg", :class=>"img img-responsive"), product_path(cake)
+                      = link_to menu_thumbnail_photo(cake.classification), product_path(cake)
                     .content.text-center
                       %p
                         = cake.name
@@ -101,7 +103,7 @@
                   .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = link_to (image_tag "paninis.jpg", :class=>"img img-responsive"), product_path(panini)
+                      = link_to menu_thumbnail_photo(panini.classification), product_path(panini)
                     .content.text-center
                       %p
                         = panini.name
@@ -119,7 +121,7 @@
                   .menu-thumbnail
                     / <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                     .avatar{:align => "center"}
-                      = link_to (image_tag "salads.jpg", :class=>"img img-responsive"), product_path(salad)
+                      = link_to menu_thumbnail_photo(salad.classification), product_path(salad)
                     .content.text-center
                       %p
                         = salad.name

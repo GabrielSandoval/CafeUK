@@ -3,11 +3,11 @@ class MenusController < ApplicationController
   before_filter :initialize_cart
 
   def index
-    @drinks = Product.find_by_classification(:drink)
-    @cakes = Product.find_by_classification(:cake)
-    @paninis = Product.find_by_classification(:panini)
-    @salads = Product.find_by_classification(:salad)
-    @pastas = Product.find_by_classification(:pasta)
+    @drinks = Product.find_by_classification("Drink")
+    @cakes = Product.find_by_classification("Cake")
+    @paninis = Product.find_by_classification("Panini")
+    @salads = Product.find_by_classification("Salad")
+    @pastas = Product.find_by_classification("Pasta")
   end
 
   def show

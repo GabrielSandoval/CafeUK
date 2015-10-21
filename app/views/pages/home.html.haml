@@ -1,9 +1,11 @@
-.container
-  .row
+-if admin?
+  .container
     .box
-      -if admin?
-        =render :partial => 'pages/admin_home', :locals=>{:announcements => @announcements}
-      -else
+      =render :partial => 'pages/admin_home', :locals=>{:announcements => @announcements}
+-else
+  .container
+    .row
+      .box
         .col-lg-12.text-center
           .div{:class=>'carousel slide', :id => 'carousel-example-generic'}
             / Indicators
@@ -37,11 +39,7 @@
           %h1.brand-name Cafe UK
           %hr.tagline-divider
 
-- if !admin?
-  -@announcements.each do |announcement|
-    .container
-      .row
-        .box
+        -@announcements.each do |announcement|
           .col-lg-12
             %hr
               %h2.text-center
@@ -56,6 +54,7 @@
           .pull-right
             = show_date_and_time(announcement.date_posted)
           .clearfix
+
   / jQuery
   %script{:src => "js/jquery.js"}
   / Bootstrap Core JavaScript

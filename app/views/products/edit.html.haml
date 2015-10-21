@@ -6,30 +6,5 @@
           .menu-thumbnail
             %center
               = image_tag ("#{@product.classification}s.jpg"), :class=>"img img-responsive"
-                
-        .col-md-8
-          =form_for @product do |f|
-            %br
-            %h4.text-center Product Information
-            %hr
-            .col-md-12
-              .col-md-4
-                Name
-              .col-md-8
-                = f.text_field :name
-            .col-md-12
-              .col-md-4
-                Description
-              .col-md-8
-                = f.text_field :description
-            .col-md-12
-              .col-md-4
-                Price
-              .col-md-8
-                = f.text_field :default_price, :type=>"number"
-              %br
-              %hr
-            .form-actions.col-md-offset-4.col-md-8.col-xs-12
-              =f.submit :class=>"btn btn-success"
-              =link_to "Back", :back, :class=>"btn btn-primary"
-           
+        .col-md-8      
+          =render 'form'

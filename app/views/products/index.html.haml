@@ -38,7 +38,7 @@
                     .col-xs-12.col-sm-6.col-md-4.col-lg-3
                       .menu-thumbnail
                         .avatar{:align => "center"}
-                          = image_tag "drinks.jpg", :class=>"img img-responsive"
+                          = menu_thumbnail_photo(drink.classification)
                         .content.text-center
                           %p
                             = drink.name
@@ -55,7 +55,7 @@
                     .col-xs-12.col-sm-6.col-md-4.col-lg-3
                       .menu-thumbnail
                         .avatar{:align => "center"}
-                          = image_tag "cakes.jpg", :class=>"img img-responsive"
+                          = menu_thumbnail_photo(cake.classification)
                         .content.text-center
                           %p
                             = cake.name
@@ -73,7 +73,7 @@
                     .col-xs-12.col-sm-6.col-md-4.col-lg-3
                       .menu-thumbnail
                         .avatar{:align => "center"}
-                          = image_tag "paninis.jpg", :class=>"img img-responsive"
+                          = menu_thumbnail_photo(panini.classification)
                         .content.text-center
                           %p
                             = panini.name
@@ -90,7 +90,7 @@
                     .col-xs-12.col-sm-6.col-md-4.col-lg-3
                       .menu-thumbnail
                         .avatar{:align => "center"}
-                          = image_tag "salads.jpg", :class=>"img img-responsive"
+                          = menu_thumbnail_photo(salad.classification)
                         .content.text-center
                           %p
                             = salad.name

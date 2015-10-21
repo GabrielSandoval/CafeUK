@@ -29,6 +29,8 @@ require 'csv'
 		admin.save
 		admin = User.new(:email => 'admin2@example.com', :first_name => 'admin2_first', :last_name => 'admin2_last', :password => 'admin2password', :bio => "I am the ADMIN2", :admin => true)
 		admin.save
+		admin = User.new(:email => 'admin3@example.com', :first_name => 'admin3_first', :last_name => 'admin3_last', :password => 'admin3password', :bio => "I am the ADMIN3", :admin => true)
+		admin.save
 
 		puts "Admin created."
 	end

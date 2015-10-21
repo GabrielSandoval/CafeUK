@@ -3,6 +3,7 @@
     .col-lg-12
       %h2
         Edit #{resource_name.to_s.humanize}
+        ="#{params[:id]}"
       - content_for :resource, "Settings for #{:first_name}"
       %ul.nav.nav-tabs{:role => "tablist"}
         %li.active
