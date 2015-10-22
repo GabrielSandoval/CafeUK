@@ -24,8 +24,11 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    product.save!
-    redirect_to products_path
+    if product.save
+      redirect_to products_path, :notice => 'The product has successfully been created.'
+    else
+      redirect_to :back, :alert => 'There was an error creating the product.'
+    end
   end
 
   def edit
